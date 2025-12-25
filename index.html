@@ -24,7 +24,8 @@
             margin: 0 auto;
             background: #1a1f2e;
         }
-         .header {
+
+        .header {
             background: linear-gradient(135deg, rgba(26, 31, 46, 0.5), rgba(35, 45, 65, 0.5)), url('hero.jpg');
             background-size: cover;
             background-position: center;
@@ -50,6 +51,12 @@
             z-index: 1;
             opacity: 0.95;
         }
+
+        .header-content {
+            position: relative;
+            z-index: 10;
+        }
+
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
@@ -248,9 +255,9 @@
         }
 
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 3em;
-                letter-spacing: 4px;
+            .header::before {
+                width: 300px;
+                height: 300px;
             }
             
             .content {
@@ -263,12 +270,10 @@
             }
         }
 
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Scroll-triggered animations */
         .scale-in {
             opacity: 0;
             transform: scale(0.9);
@@ -291,7 +296,6 @@
             transform: translateY(0);
         }
 
-        /* Selection color */
         ::selection {
             background: #6366f1;
             color: #ffffff;
@@ -302,14 +306,12 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
-                <h1>Night Kollel</h1>
                 <p>Advanced Torah Study</p>
                 <a href="YOUR-DONATION-LINK-HERE" class="donate-btn"><span>Support</span></a>
             </div>
         </div>
 
         <div class="content">
-            <!-- VIDEO 1 -->
             <div class="video-section scale-in">
                 <div class="video-container">
                     <video controls>
@@ -321,7 +323,6 @@
 
             <div class="section-divider"></div>
 
-            <!-- VIDEO 2 -->
             <div class="video-section scale-in">
                 <div class="video-container">
                     <video controls>
@@ -333,7 +334,6 @@
 
             <div class="section-divider"></div>
 
-            <!-- PHOTO GALLERY -->
             <div class="gallery fade-in">
                 <div class="gallery-item">
                     <img src="IMG_4798.jpg" alt="Kollel Photo 1">
@@ -353,7 +353,6 @@
     </div>
 
     <script>
-        // Scroll animation observer
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -367,7 +366,6 @@
             });
         }, observerOptions);
 
-        // Observe all animated elements
         document.addEventListener('DOMContentLoaded', () => {
             const animatedElements = document.querySelectorAll('.fade-in, .scale-in');
             animatedElements.forEach(el => observer.observe(el));
