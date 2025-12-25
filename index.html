@@ -12,48 +12,40 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            color: #2c3e50;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
-            margin: 40px auto;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 30px 90px rgba(0,0,0,0.3);
+            max-width: 100%;
+            margin: 0 auto;
+            background: #000000;
         }
 
         .header {
-            background: linear-gradient(135deg, rgba(15, 32, 66, 0.95), rgba(26, 54, 93, 0.9)), url('header-background.jpg');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(15, 15, 35, 0.8)), url('header-background.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
-            padding: 120px 60px 90px;
+            padding: 140px 60px 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .header::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
-            50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(99, 102, 241, 0.15), transparent 60%);
         }
 
         .header-content {
@@ -62,74 +54,70 @@
         }
 
         .header h1 {
-            font-size: 5em;
-            margin-bottom: 25px;
+            font-size: 5.5em;
+            margin-bottom: 20px;
             font-weight: 200;
-            letter-spacing: 4px;
-            text-shadow: 3px 3px 15px rgba(0,0,0,0.5);
+            letter-spacing: 8px;
             animation: fadeInDown 1s ease;
+            text-transform: uppercase;
         }
 
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .header p {
-            font-size: 1.6em;
+            font-size: 1.4em;
             font-weight: 300;
-            margin-bottom: 45px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-            animation: fadeInUp 1s ease 0.3s both;
+            margin-bottom: 50px;
+            letter-spacing: 3px;
+            opacity: 0.85;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .donate-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-            padding: 22px 60px;
-            font-size: 1.3em;
-            font-weight: 700;
+            background: #ffffff;
+            color: #000000;
+            padding: 20px 70px;
+            font-size: 1.1em;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 60px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 40px rgba(245, 87, 108, 0.5);
+            border-radius: 0;
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            border: 3px solid rgba(255,255,255,0.3);
-            animation: fadeInUp 1s ease 0.6s both;
+            letter-spacing: 3px;
+            animation: fadeInUp 1s ease 0.4s both;
             position: relative;
             overflow: hidden;
+            border: 2px solid #ffffff;
         }
 
         .donate-btn::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #6366f1;
+            transition: left 0.5s ease;
+            z-index: -1;
         }
 
         .donate-btn:hover::before {
-            width: 300px;
-            height: 300px;
+            left: 0;
         }
 
         .donate-btn:hover {
-            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
-            box-shadow: 0 15px 50px rgba(245, 87, 108, 0.7);
-            transform: translateY(-5px) scale(1.05);
-            border-color: rgba(255,255,255,0.6);
+            color: #ffffff;
+            border-color: #6366f1;
         }
 
         .donate-btn span {
@@ -138,17 +126,20 @@
         }
 
         .content {
-            padding: 90px 70px;
+            padding: 100px 80px;
+            background: #000000;
         }
 
         .content h2 {
-            color: #1a365d;
-            margin-bottom: 35px;
-            font-size: 3em;
+            color: #ffffff;
+            margin-bottom: 40px;
+            font-size: 3.5em;
             text-align: center;
             font-weight: 200;
             position: relative;
-            padding-bottom: 25px;
+            padding-bottom: 30px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
         
         .content h2::after {
@@ -157,17 +148,16 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, #667eea, #764ba2, #667eea, transparent);
-            border-radius: 2px;
+            width: 100px;
+            height: 2px;
+            background: #6366f1;
         }
 
         .intro-text {
             max-width: 900px;
-            margin: 0 auto 70px;
-            font-size: 1.25em;
-            color: #4a5568;
+            margin: 0 auto 80px;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.7);
             text-align: center;
             line-height: 2;
             font-weight: 300;
@@ -175,71 +165,66 @@
 
         .stats-section {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin: 70px 0;
-            padding: 60px 40px;
-            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
-            border-radius: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2px;
+            margin: 80px 0;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .stat-card {
             text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 60px 30px;
+            background: #000000;
             transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .stat-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+            background: rgba(99, 102, 241, 0.1);
+            border-color: #6366f1;
         }
 
         .stat-number {
-            font-size: 3.5em;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            font-size: 4em;
+            font-weight: 200;
+            color: #6366f1;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
         }
 
         .stat-label {
-            font-size: 1.2em;
-            color: #4a5568;
-            font-weight: 500;
+            font-size: 1.1em;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .video-section {
-            margin: 90px 0;
-            padding: 70px 0;
-            background: linear-gradient(135deg, #f8fafc 0%, #e7eef8 100%);
-            border-radius: 20px;
+            margin: 100px 0;
+            padding: 0;
         }
 
         .video-section h3 {
-            color: #1a365d;
-            margin-bottom: 40px;
-            font-size: 2.5em;
+            color: #ffffff;
+            margin-bottom: 50px;
+            font-size: 3em;
             text-align: center;
             font-weight: 200;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .video-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            border: 8px solid white;
             transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .video-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 25px 70px rgba(102, 126, 234, 0.3);
+            border-color: #6366f1;
         }
 
         .video-container video {
@@ -250,18 +235,18 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2px;
             margin-top: 60px;
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .gallery-item {
-            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
             transition: all 0.4s;
             position: relative;
-            background: white;
+            background: #000000;
+            aspect-ratio: 4/3;
         }
 
         .gallery-item::before {
@@ -271,7 +256,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(99, 102, 241, 0.1));
             opacity: 0;
             transition: opacity 0.4s;
             z-index: 1;
@@ -282,55 +267,43 @@
         }
 
         .gallery-item:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 25px 60px rgba(102, 126, 234, 0.4);
+            z-index: 2;
         }
 
         .gallery-item img {
             width: 100%;
-            height: 320px;
+            height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s;
+            transition: transform 0.6s ease;
+            filter: grayscale(20%);
         }
 
         .gallery-item:hover img {
-            transform: scale(1.1);
+            transform: scale(1.08);
+            filter: grayscale(0%);
         }
 
         footer {
-            background: linear-gradient(135deg, #0f2042 0%, #1a365d 100%);
-            color: white;
+            background: #000000;
+            color: rgba(255, 255, 255, 0.5);
             text-align: center;
-            padding: 50px;
-            font-size: 1em;
-            position: relative;
-            overflow: hidden;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #667eea, transparent);
-            animation: scan 3s linear infinite;
-        }
-
-        @keyframes scan {
-            0% { left: -100%; }
-            100% { left: 100%; }
+            padding: 60px;
+            font-size: 0.95em;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 2px;
         }
 
         .section-divider {
-            margin: 80px 0;
+            margin: 100px 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
         }
 
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 3em;
+                letter-spacing: 4px;
             }
             
             .content {
@@ -339,12 +312,28 @@
             
             .gallery {
                 grid-template-columns: 1fr;
+                gap: 1px;
             }
 
-            .container {
-                margin: 20px;
-                border-radius: 15px;
+            .stats-section {
+                grid-template-columns: 1fr;
+                gap: 1px;
             }
+
+            .content h2 {
+                font-size: 2.5em;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: #6366f1;
+            color: #ffffff;
         }
     </style>
 </head>
@@ -353,13 +342,13 @@
         <div class="header">
             <div class="header-content">
                 <h1>Night Kollel</h1>
-                <p>Center for Advanced Torah Study & Spiritual Excellence</p>
-                <a href="YOUR-DONATION-LINK-HERE" class="donate-btn"><span>Support Our Mission</span></a>
+                <p>Advanced Torah Study</p>
+                <a href="YOUR-DONATION-LINK-HERE" class="donate-btn"><span>Support</span></a>
             </div>
         </div>
 
         <div class="content">
-            <h2>About Our Program</h2>
+            <h2>Our Program</h2>
             <p class="intro-text">
                 Night Kollel provides an exceptional environment for dedicated Torah study and spiritual development. 
                 Our distinguished evening program brings together accomplished scholars and passionate students, 
@@ -369,15 +358,15 @@
             <div class="stats-section">
                 <div class="stat-card">
                     <div class="stat-number">250+</div>
-                    <div class="stat-label">Students Annually</div>
+                    <div class="stat-label">Students</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">15</div>
-                    <div class="stat-label">Expert Scholars</div>
+                    <div class="stat-label">Scholars</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">1000+</div>
-                    <div class="stat-label">Hours of Study</div>
+                    <div class="stat-label">Study Hours</div>
                 </div>
             </div>
 
@@ -385,7 +374,7 @@
 
             <!-- VIDEO SECTION -->
             <div class="video-section">
-                <h3>Experience Our Kollel</h3>
+                <h3>Our Kollel</h3>
                 <div class="video-container">
                     <video controls>
                         <source src="your-video.mp4" type="video/mp4">
@@ -394,8 +383,10 @@
                 </div>
             </div>
 
+            <div class="section-divider"></div>
+
             <!-- PHOTO GALLERY -->
-            <h2>Our Community</h2>
+            <h2>Community</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="photo1.jpg" alt="Kollel Study Session">
