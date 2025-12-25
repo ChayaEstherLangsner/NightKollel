@@ -30,11 +30,11 @@
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 80px 40px;
+            padding: 60px 40px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 600px;
+            min-height: 50vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -42,12 +42,12 @@
         }
 
         .logo-container {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             animation: fadeInDown 1s ease;
         }
 
         .logo-container img {
-            max-width: 650px;
+            max-width: 700px;
             width: 100%;
             height: auto;
             display: block;
@@ -65,19 +65,21 @@
 
         .donate-btn {
             display: inline-block;
-            background: #6366f1;
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
             color: #ffffff;
-            padding: 22px 80px;
-            font-size: 1.15em;
-            font-weight: 600;
+            padding: 18px 60px;
+            font-size: 1em;
+            font-weight: 500;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             animation: fadeInUp 1s ease 0.3s both;
             position: relative;
             overflow: hidden;
-            border: 2px solid #6366f1;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
         }
 
         .donate-btn::before {
@@ -87,19 +89,17 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.15);
-            transition: left 0.5s ease;
+            background: linear-gradient(135deg, #818cf8, #6366f1);
+            transition: left 0.6s ease;
         }
 
         .donate-btn:hover::before {
-            left: 100%;
+            left: 0;
         }
 
         .donate-btn:hover {
-            background: #4f46e5;
-            border-color: #4f46e5;
-            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.6);
-            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.6);
+            transform: translateY(-3px);
         }
 
         .content {
@@ -237,17 +237,17 @@
 
         @media (max-width: 768px) {
             .header {
-                padding: 60px 20px;
-                min-height: 500px;
+                padding: 40px 20px 60px;
+                min-height: 50vh;
             }
 
             .logo-container img {
-                max-width: 300px;
+                max-width: 350px;
             }
 
             .donate-btn {
-                padding: 18px 50px;
-                font-size: 1em;
+                padding: 16px 45px;
+                font-size: 0.95em;
             }
             
             .content {
