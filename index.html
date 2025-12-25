@@ -301,8 +301,44 @@
 
         .section-divider {
             margin: 100px 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                #6366f1 20%, 
+                #8b5cf6 40%, 
+                #ec4899 60%, 
+                #6366f1 80%, 
+                transparent 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 7px;
+            background: inherit;
+            filter: blur(8px);
+            opacity: 0.6;
         }
 
         @media (max-width: 768px) {
@@ -335,6 +371,51 @@
             scroll-behavior: smooth;
         }
 
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         /* Selection color */
         ::selection {
             background: #6366f1;
@@ -358,14 +439,14 @@
         </div>
 
         <div class="content">
-            <h2>Our Program</h2>
-            <p class="intro-text">
+            <h2 class="fade-in">Our Program</h2>
+            <p class="intro-text fade-in">
                 Night Kollel provides an exceptional environment for dedicated Torah study and spiritual development. 
                 Our distinguished evening program brings together accomplished scholars and passionate students, 
                 fostering a community committed to excellence in learning and character refinement.
             </p>
 
-            <div class="stats-section">
+            <div class="stats-section fade-in">
                 <div class="stat-card">
                     <div class="stat-number">250+</div>
                     <div class="stat-label">Students</div>
@@ -383,7 +464,7 @@
             <div class="section-divider"></div>
 
             <!-- VIDEO SECTION -->
-            <div class="video-section">
+            <div class="video-section scale-in">
                 <h3>Our Kollel</h3>
                 <div class="video-container">
                     <video controls>
@@ -396,8 +477,8 @@
             <div class="section-divider"></div>
 
             <!-- PHOTO GALLERY -->
-            <h2>Community</h2>
-            <div class="gallery">
+            <h2 class="fade-in">Community</h2>
+            <div class="gallery fade-in">
                 <div class="gallery-item">
                     <img src="photo1.jpg" alt="Kollel Study Session">
                 </div>
@@ -423,5 +504,27 @@
             <p>&copy; 2024 Night Kollel. All rights reserved.</p>
         </footer>
     </div>
+
+    <script>
+        // Scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
