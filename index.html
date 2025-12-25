@@ -25,46 +25,71 @@
         }
 
         .header {
-            background: #1a365d;
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(44, 82, 130, 0.9)), url('header-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 80px 40px 60px;
+            padding: 100px 40px 70px;
             text-align: center;
             border-bottom: 4px solid #2c5282;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(37, 99, 235, 0.2), transparent);
+            pointer-events: none;
         }
 
         .header h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
+            font-size: 4em;
+            margin-bottom: 20px;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .header p {
-            font-size: 1.3em;
+            font-size: 1.4em;
             font-weight: 300;
-            opacity: 0.9;
-            margin-bottom: 35px;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
         }
 
         .donate-btn {
             display: inline-block;
-            background: #2563eb;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             color: white;
-            padding: 16px 45px;
-            font-size: 1.1em;
+            padding: 18px 50px;
+            font-size: 1.15em;
             font-weight: 600;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 50px;
             transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
         .donate-btn:hover {
-            background: #1d4ed8;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.4);
         }
 
         .content {
@@ -74,11 +99,25 @@
         .content h2 {
             color: #1a365d;
             margin-bottom: 25px;
-            font-size: 2.2em;
+            font-size: 2.5em;
             text-align: center;
-            font-weight: 400;
-            border-bottom: 3px solid #e2e8f0;
-            padding-bottom: 15px;
+            font-weight: 300;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
         }
 
         .intro-text {
@@ -229,7 +268,7 @@
         </div>
 
         <footer>
-            <p>&copy; 2024 Night Kollel. All rights reserved.</p>
+            <p>&copy; 2024 Night Kollel. All rights reservedtest.</p>
         </footer>
     </div>
 </body>
