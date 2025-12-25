@@ -12,97 +12,105 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #1a365d;
             color: white;
-            padding: 60px 40px;
+            padding: 80px 40px 60px;
             text-align: center;
-            position: relative;
+            border-bottom: 4px solid #2c5282;
         }
 
         .header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .header p {
-            font-size: 1.2em;
-            opacity: 0.95;
+            font-size: 1.3em;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 35px;
         }
 
         .donate-btn {
             display: inline-block;
-            background: #ffd700;
-            color: #333;
-            padding: 18px 50px;
-            font-size: 1.3em;
-            font-weight: bold;
+            background: #2563eb;
+            color: white;
+            padding: 16px 45px;
+            font-size: 1.1em;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 50px;
-            margin-top: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 6px;
             transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .donate-btn:hover {
-            background: #ffed4e;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            background: #1d4ed8;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
         }
 
         .content {
-            padding: 50px 40px;
+            padding: 70px 60px;
         }
 
         .content h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 2em;
+            color: #1a365d;
+            margin-bottom: 25px;
+            font-size: 2.2em;
             text-align: center;
+            font-weight: 400;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 15px;
         }
 
-        .content p {
-            line-height: 1.8;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            color: #555;
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 1.15em;
+            color: #4a5568;
             text-align: center;
+            line-height: 1.8;
         }
 
         .video-section {
-            margin: 40px 0;
-            text-align: center;
+            margin: 70px 0;
+            padding: 50px 0;
+            background: #f8fafc;
         }
 
         .video-section h3 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.5em;
+            color: #1a365d;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            text-align: center;
+            font-weight: 400;
         }
 
         .video-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
         }
 
         .video-container video {
@@ -113,56 +121,81 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
         .gallery-item {
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #e2e8f0;
+            background: white;
         }
 
         .gallery-item:hover {
-            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateY(-5px);
         }
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 280px;
             object-fit: cover;
             display: block;
         }
 
         footer {
-            background: #2c3e50;
+            background: #1a365d;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 30px;
+            font-size: 0.95em;
+            border-top: 4px solid #2c5282;
+        }
+
+        .section-divider {
+            margin: 70px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .content {
+                padding: 50px 30px;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🕯️ Welcome to Night Kollel</h1>
-            <p>A place of Torah study and spiritual growth</p>
-            <a href="YOUR-DONATION-LINK-HERE" class="donate-btn">💝 DONATE</a>
+            <h1>Night Kollel</h1>
+            <p>Center for Advanced Torah Study</p>
+            <a href="YOUR-DONATION-LINK-HERE" class="donate-btn">Support Our Mission</a>
         </div>
 
         <div class="content">
-            <h2>About Our Kollel</h2>
-            <p>
-                Welcome to our Night Kollel community. Here, we gather each evening 
-                to engage in deep Torah study, meaningful discussion, and spiritual growth.
+            <h2>About Our Program</h2>
+            <p class="intro-text">
+                Night Kollel provides a structured environment for dedicated Torah study and spiritual development. 
+                Our evening program brings together scholars and students committed to deepening their understanding 
+                and engaging in rigorous textual analysis.
             </p>
+
+            <div class="section-divider"></div>
 
             <!-- VIDEO SECTION -->
             <div class="video-section">
-                <h3>📹 Watch Our Kollel in Action</h3>
+                <h3>Experience Our Kollel</h3>
                 <div class="video-container">
                     <video controls>
                         <source src="your-video.mp4" type="video/mp4">
@@ -172,25 +205,25 @@
             </div>
 
             <!-- PHOTO GALLERY -->
-            <h2 style="margin-top: 60px;">📸 Our Community</h2>
+            <h2>Our Community</h2>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="photo1.jpg" alt="Kollel Photo 1">
+                    <img src="photo1.jpg" alt="Kollel Study Session">
                 </div>
                 <div class="gallery-item">
-                    <img src="photo2.jpg" alt="Kollel Photo 2">
+                    <img src="photo2.jpg" alt="Torah Learning">
                 </div>
                 <div class="gallery-item">
-                    <img src="photo3.jpg" alt="Kollel Photo 3">
+                    <img src="photo3.jpg" alt="Community Gathering">
                 </div>
                 <div class="gallery-item">
-                    <img src="photo4.jpg" alt="Kollel Photo 4">
+                    <img src="photo4.jpg" alt="Evening Study">
                 </div>
                 <div class="gallery-item">
-                    <img src="photo5.jpg" alt="Kollel Photo 5">
+                    <img src="photo5.jpg" alt="Kollel Scholars">
                 </div>
                 <div class="gallery-item">
-                    <img src="photo6.jpg" alt="Kollel Photo 6">
+                    <img src="photo6.jpg" alt="Learning Environment">
                 </div>
             </div>
         </div>
