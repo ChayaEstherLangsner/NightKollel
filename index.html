@@ -117,24 +117,14 @@ body {
     border-radius: 999px;
 }
 
-/* ---------- MEDIA GRID ---------- */
-.video-grid,
+/* ---------- MEDIA GRIDS ---------- */
 .photo-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+    margin-bottom: 0;
 }
 
-.video-grid {
-    margin-top: 30px;
-    margin-bottom: 70px;
-}
-
-.photo-grid {
-    margin-bottom: 0; /* no extra margin, button right below */
-}
-
-video,
 .photo-grid img {
     width: 100%;
     height: 320px;
@@ -143,10 +133,20 @@ video,
     box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
 }
 
-/* clickable plaques */
-.plaque {
-    cursor: pointer;
-    flex-shrink: 0;
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+    margin-bottom: 70px;
+}
+
+video {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
 }
 
 /* ---------- PLAQUES SECTION ---------- */
@@ -180,8 +180,13 @@ video,
     animation-play-state: paused;
 }
 
+.plaque {
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
 .plaque img {
-    height: 384px; /* 4 inches approx */
+    height: 480px; /* approx 5 inches */
     width: auto;
     border-radius: 12px;
     background: #ffffff;
@@ -206,8 +211,8 @@ footer {
 
 /* ---------- MOBILE ---------- */
 @media (max-width: 900px) {
-    .video-grid,
-    .photo-grid {
+    .photo-grid,
+    .video-grid {
         grid-template-columns: 1fr;
     }
 
@@ -228,7 +233,7 @@ footer {
     }
 
     .plaque img {
-        height: 240px; /* smaller on mobile */
+        height: 240px;
     }
 }
 </style>
@@ -253,29 +258,18 @@ footer {
     <div class="inner">
         <h2 class="section-title">A Glimpse into the Night Kollel</h2>
 
+        <!-- Photos first -->
         <div class="photo-grid">
-            <!-- clickable plaques: wrapped in <a> to open full image in new tab -->
-            <a href="ns2022.jpg" target="_blank" rel="noopener" class="plaque">
-                <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
-            </a>
-            <a href="ns2023.jpg" target="_blank" rel="noopener" class="plaque">
-                <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
-            </a>
-            <a href="ns2024.jpg" target="_blank" rel="noopener" class="plaque">
-                <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
-            </a>
-            <a href="2ns2024.jpg" target="_blank" rel="noopener" class="plaque">
-                <img src="2ns2024.jpg" alt="Supporter Plaque 2024b" />
-            </a>
-            <a href="ns.jpg" target="_blank" rel="noopener" class="plaque">
-                <img src="ns.jpg" alt="Supporter Plaque" />
-            </a>
+            <img src="IMG_4798.jpg" alt="Night Kollel" />
+            <img src="IMG_4818.jpg" alt="Night Kollel" />
         </div>
 
+        <!-- Become a Partner button moved closer to photos -->
         <a href="http://Secure.cardknox.com/khalbneitorah" class="secondary-btn">
             Become a Partner
         </a>
 
+        <!-- Videos below photos and button -->
         <div class="video-grid">
             <video controls>
                 <source src="video1.mp4" type="video/mp4" />
