@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Night Kollel</title>
 
 <style>
@@ -42,7 +42,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 .header-inner {
@@ -62,7 +61,6 @@ body {
 
 /* ---------- BUTTONS ---------- */
 .primary-btn {
-    display: inline-block;
     padding: 15px 46px;
     background: #1e293b;
     color: #ffffff;
@@ -71,8 +69,8 @@ body {
     border-radius: 999px;
     letter-spacing: 1.5px;
     border: 1px solid #c7d2fe;
-    transition: background 0.3s ease, transform 0.3s ease;
     margin-top: -26px;
+    transition: all 0.3s ease;
 }
 
 .primary-btn:hover {
@@ -81,7 +79,6 @@ body {
 }
 
 .secondary-btn {
-    display: inline-block;
     margin-top: 60px;
     padding: 16px 52px;
     background: #1e293b;
@@ -90,8 +87,8 @@ body {
     font-weight: 700;
     border-radius: 999px;
     letter-spacing: 1.6px;
-    transition: background 0.3s ease, transform 0.3s ease;
     box-shadow: 0 10px 30px rgba(30, 41, 59, 0.35);
+    transition: all 0.3s ease;
 }
 
 .secondary-btn:hover {
@@ -138,10 +135,10 @@ video,
     box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
 }
 
-/* ---------- PLAQUES SECTION ---------- */
+/* ---------- PLAQUES ---------- */
 .plaques-section {
     background: #ffffff;
-    padding: 70px 0;
+    padding: 90px 0;
     overflow: hidden;
 }
 
@@ -149,35 +146,38 @@ video,
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
+/* viewport only shows ~2 plaques */
 .plaques-wrapper {
-    width: 100%;
-    overflow: hidden;
-    max-width: 1100px;
+    max-width: 1400px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
+/* slow elegant scroll */
 .plaques-track {
     display: flex;
-    gap: 40px;
-    animation: scrollPlaques 25s linear infinite;
+    gap: 220px; /* BIG spacing */
+    width: max-content;
+    animation: scrollPlaques 70s linear infinite;
 }
 
 .plaques-track:hover {
     animation-play-state: paused;
 }
 
-.plaque img {
-    height: 384px; /* 4 inches approx */
+/* 6-inch plaques */
+.plaques-track img {
+    height: 576px; /* ~6 inches */
     width: auto;
-    border-radius: 12px;
+    border-radius: 14px;
     background: #ffffff;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-    flex-shrink: 0;
+    box-shadow: 0 16px 45px rgba(15, 23, 42, 0.25);
 }
 
+/* animation */
 @keyframes scrollPlaques {
     from {
         transform: translateX(0);
@@ -204,6 +204,14 @@ footer {
     .photo-grid img {
         height: auto;
     }
+
+    .plaques-track img {
+        height: 360px;
+    }
+
+    .plaques-track {
+        gap: 120px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -215,21 +223,16 @@ footer {
     .plaques-title {
         font-size: 1.7rem;
     }
-
-    .plaque img {
-        height: 240px; /* smaller on mobile */
-    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <header class="header">
     <div class="header-inner">
         <div class="logo-container">
-            <img src="night seder logo.png" alt="Night Kollel Logo" />
+            <img src="night seder logo.png" alt="Night Kollel Logo">
         </div>
         <a href="http://Secure.cardknox.com/khalbneitorah" class="primary-btn">
             Support Our Lomdim
@@ -237,23 +240,18 @@ footer {
     </div>
 </header>
 
-<!-- MEDIA SECTION -->
 <section class="section">
     <div class="inner">
         <h2 class="section-title">A Glimpse into the Night Kollel</h2>
 
         <div class="video-grid">
-            <video controls>
-                <source src="video1.mp4" type="video/mp4" />
-            </video>
-            <video controls>
-                <source src="video2.mp4" type="video/mp4" />
-            </video>
+            <video controls><source src="video1.mp4" type="video/mp4"></video>
+            <video controls><source src="video2.mp4" type="video/mp4"></video>
         </div>
 
         <div class="photo-grid">
-            <img src="IMG_4798.jpg" alt="Night Kollel" />
-            <img src="IMG_4818.jpg" alt="Night Kollel" />
+            <img src="IMG_4798.jpg">
+            <img src="IMG_4818.jpg">
         </div>
 
         <a href="http://Secure.cardknox.com/khalbneitorah" class="secondary-btn">
@@ -262,29 +260,27 @@ footer {
     </div>
 </section>
 
-<!-- PLAQUES SECTION -->
 <section class="plaques-section">
     <h2 class="plaques-title">With Gratitude to Our Past Supporters</h2>
 
     <div class="plaques-wrapper">
         <div class="plaques-track">
-            <div class="plaque"><img src="ns2022.jpg" alt="Supporter Plaque 2022" /></div>
-            <div class="plaque"><img src="ns2023.jpg" alt="Supporter Plaque 2023" /></div>
-            <div class="plaque"><img src="ns2024.jpg" alt="Supporter Plaque 2024" /></div>
-            <div class="plaque"><img src="2ns2024.jpg" alt="Supporter Plaque 2024b" /></div>
-            <div class="plaque"><img src="ns.jpg" alt="Supporter Plaque" /></div>
+            <img src="ns2022.jpg">
+            <img src="ns2023.jpg">
+            <img src="ns2024.jpg">
+            <img src="2ns2024.jpg">
+            <img src="ns.jpg">
 
-            <!-- duplicate for seamless loop -->
-            <div class="plaque"><img src="ns2022.jpg" alt="Supporter Plaque 2022" /></div>
-            <div class="plaque"><img src="ns2023.jpg" alt="Supporter Plaque 2023" /></div>
-            <div class="plaque"><img src="ns2024.jpg" alt="Supporter Plaque 2024" /></div>
-            <div class="plaque"><img src="2ns2024.jpg" alt="Supporter Plaque 2024b" /></div>
-            <div class="plaque"><img src="ns.jpg" alt="Supporter Plaque" /></div>
+            <!-- duplicate for seamless scroll -->
+            <img src="ns2022.jpg">
+            <img src="ns2023.jpg">
+            <img src="ns2024.jpg">
+            <img src="2ns2024.jpg">
+            <img src="ns.jpg">
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer></footer>
 
 </body>
