@@ -1,365 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Night Kollel</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Night Kollel</title>
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
-            background: #1a1f2e;
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-            background: #1a1f2e;
-        }
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f6fb;
+    color: #1e293b;
+    line-height: 1.6;
+}
 
-        .header {
-            background: linear-gradient(135deg, rgba(26, 31, 46, 0.6), rgba(35, 45, 65, 0.6)), url('hero.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 60px 40px 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+/* ---------- GLOBAL ---------- */
+.section {
+    padding: 70px 20px;
+}
 
-        .logo-container {
-            margin-bottom: 50px;
-            animation: fadeInDown 1s ease;
-        }
+.inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        .logo-container img {
-            max-width: 700px;
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+/* ---------- HERO ---------- */
+.header {
+    background: linear-gradient(
+        rgba(15, 23, 42, 0.65),
+        rgba(15, 23, 42, 0.65)
+    ), url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 65px 20px 80px;
+}
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.logo-container img {
+    max-width: 580px;
+    width: 100%;
+    margin-bottom: 35px;
+}
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+/* ---------- BUTTONS ---------- */
+.primary-btn {
+    display: inline-block;
+    padding: 15px 46px;
+    background: #1e293b;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    border: 1px solid #c7d2fe;
+}
 
-        .donate-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
-            color: #ffffff;
-            padding: 18px 60px;
-            font-size: 1em;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: fadeInUp 1s ease 0.3s both;
-            position: relative;
-            overflow: hidden;
-            border: none;
-            border-radius: 50px;
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-        }
+.primary-btn:hover {
+    background: #020617;
+    transform: translateY(-2px);
+}
 
-        .donate-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #818cf8, #6366f1);
-            transition: left 0.6s ease;
-        }
+.secondary-btn {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 14px 44px;
+    background: transparent;
+    color: #1e293b;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    border: 1.5px solid #1e293b;
+    transition: all 0.3s ease;
+}
 
-        .donate-btn:hover::before {
-            left: 0;
-        }
+.secondary-btn:hover {
+    background: #1e293b;
+    color: #ffffff;
+}
 
-        .donate-btn:hover {
-            box-shadow: 0 12px 35px rgba(99, 102, 241, 0.6);
-            transform: translateY(-3px);
-        }
+/* ---------- TITLES ---------- */
+.section-title {
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
 
-        .content {
-            padding: 100px 80px;
-            background: #ffffff;
-        }
+.section-caption {
+    font-size: 1.05rem;
+    color: #475569;
+    margin-bottom: 55px;
+    letter-spacing: 1px;
+}
 
-        .video-section {
-            margin: 60px 0;
-            padding: 0;
-        }
+/* ---------- MEDIA GRID ---------- */
+.video-grid,
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
 
-        .video-container {
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid #e5e7eb;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
+.video-grid {
+    margin-bottom: 70px;
+}
 
-        .video-container:hover {
-            border-color: #6366f1;
-            box-shadow: 0 15px 60px rgba(99, 102, 241, 0.3);
-        }
+/* ---------- MEDIA ---------- */
+video,
+.photo-grid img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+}
 
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+/* ---------- FOOTER ---------- */
+footer {
+    background: #0f172a;
+    padding: 60px 20px;
+}
 
-        .section-divider {
-            margin: 80px 0;
-            height: 3px;
-            background: linear-gradient(90deg, 
-                transparent 0%, 
-                #3b82f6 15%, 
-                #6366f1 35%, 
-                #4f46e5 50%, 
-                #6366f1 65%, 
-                #3b82f6 85%, 
-                transparent 100%);
-            position: relative;
-            overflow: hidden;
-        }
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+    .video-grid,
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
 
-        .section-divider::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-            animation: shimmer 3s infinite;
-        }
+    video,
+    .photo-grid img {
+        height: auto;
+    }
+}
 
-        @keyframes shimmer {
-            0% { left: -100%; }
-            100% { left: 200%; }
-        }
+@media (max-width: 768px) {
+    .logo-container img {
+        max-width: 360px;
+    }
 
-        .section-divider::after {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: 0;
-            right: 0;
-            height: 7px;
-            background: inherit;
-            filter: blur(8px);
-            opacity: 0.6;
-        }
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2px;
-            margin-top: 60px;
-            background: #e5e7eb;
-        }
-
-        .gallery-item {
-            overflow: hidden;
-            transition: all 0.4s;
-            position: relative;
-            background: #ffffff;
-            aspect-ratio: 4/3;
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(99, 102, 241, 0.2));
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: 1;
-        }
-
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-item:hover {
-            z-index: 2;
-            transform: scale(1.02);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        footer {
-            background: #f8f9fa;
-            color: #6b7280;
-            text-align: center;
-            padding: 60px;
-            font-size: 0.95em;
-            border-top: 1px solid #e5e7eb;
-            letter-spacing: 2px;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                padding: 40px 20px 60px;
-                min-height: 50vh;
-            }
-
-            .logo-container img {
-                max-width: 350px;
-            }
-
-            .donate-btn {
-                padding: 16px 45px;
-                font-size: 0.95em;
-            }
-            
-            .content {
-                padding: 60px 30px;
-            }
-            
-            .gallery {
-                grid-template-columns: 1fr;
-                gap: 1px;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        ::selection {
-            background: #6366f1;
-            color: #ffffff;
-        }
-    </style>
+    .section-title {
+        font-size: 1.7rem;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="logo-container">
-                <img src="night seder log.png" alt="Night Kollel Logo">
-            </div>
-            <a href="YOUR-DONATION-LINK-HERE" class="donate-btn">Support</a>
-        </div>
 
-        <div class="content">
-            <div class="video-section scale-in">
-                <div class="video-container">
-                    <video controls>
-                        <source src="video1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-
-            <div class="section-divider"></div>
-
-            <div class="video-section scale-in">
-                <div class="video-container">
-                    <video controls>
-                        <source src="video2.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </div>
-
-            <div class="section-divider"></div>
-
-            <div class="gallery fade-in">
-                <div class="gallery-item">
-                    <img src="IMG_4798.jpg" alt="Kollel Photo 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG_4818.jpg" alt="Kollel Photo 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="IMG_4823.jpg" alt="Kollel Photo 3">
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>&copy; 2024 Night Kollel. All rights reserved.</p>
-        </footer>
+<!-- HERO -->
+<header class="header">
+    <div class="logo-container">
+        <img src="night seder logo.png" alt="Night Kollel Logo">
     </div>
+    <a href="http://Secure.cardknox.com/khalbneitorah" class="primary-btn">
+        Support Our Lomdim
+    </a>
+</header>
 
-    <script>
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
+<!-- MEDIA SECTION -->
+<section class="section">
+    <div class="inner">
+        <h2 class="section-title">Inside the Night Kollel</h2>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+        <p class="section-caption">
+            A Glimpse into the Night Kollel
+        </p>
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const animatedElements = document.querySelectorAll('.fade-in, .scale-in');
-            animatedElements.forEach(el => observer.observe(el));
-        });
-    </script>
+        <!-- VIDEOS -->
+        <div class="video-grid">
+            <video controls>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+
+            <video controls>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- PHOTOS -->
+        <div class="photo-grid">
+            <img src="IMG_4798.jpg" alt="Night Kollel">
+            <img src="IMG_4818.jpg" alt="Night Kollel">
+        </div>
+
+        <!-- PARTNER BUTTON -->
+        <a href="http://Secure.cardknox.com/khalbneitorah" class="secondary-btn">
+            Become a Partner
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer></footer>
+
 </body>
 </html>
