@@ -19,23 +19,6 @@ body {
     line-height: 1.6;
 }
 
-/* ---------- ANIMATIONS ---------- */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes underlineGrow {
-    from { width: 0; }
-    to { width: 70px; }
-}
-
 /* ---------- GLOBAL ---------- */
 .section {
     padding: 70px 20px;
@@ -67,11 +50,10 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: fadeUp 1s ease forwards;
 }
 
 .logo-container {
-    margin-bottom: 4px; /* tighter */
+    margin-bottom: 4px;
 }
 
 .logo-container img {
@@ -90,9 +72,9 @@ body {
     border-radius: 999px;
     letter-spacing: 1.5px;
     border: 1px solid #c7d2fe;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 
-    margin-top: -26px; /* clearly moved up */
+    margin-top: -26px; /* moved up */
 }
 
 .primary-btn:hover {
@@ -111,14 +93,13 @@ body {
     font-weight: 700;
     border-radius: 999px;
     letter-spacing: 1.6px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
     box-shadow: 0 10px 30px rgba(30, 41, 59, 0.35);
 }
 
 .secondary-btn:hover {
     background: #020617;
     transform: translateY(-3px);
-    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.45);
 }
 
 /* ---------- TITLES ---------- */
@@ -127,18 +108,18 @@ body {
     font-weight: 600;
     margin-bottom: 50px;
     position: relative;
-    animation: fadeUp 0.9s ease forwards;
+    letter-spacing: 1px;
 }
 
-/* underline effect */
+/* static underline (no animation) */
 .section-title::after {
     content: "";
     display: block;
+    width: 70px;
     height: 3px;
     background: #1e293b;
     margin: 16px auto 0;
     border-radius: 999px;
-    animation: underlineGrow 1s ease forwards;
 }
 
 /* ---------- MEDIA GRID ---------- */
@@ -161,7 +142,6 @@ video,
     object-fit: cover;
     border-radius: 18px;
     box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
-    animation: fadeUp 1s ease forwards;
 }
 
 /* ---------- FOOTER ---------- */
