@@ -15,7 +15,7 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #f4f6fb;
-    color: #1f2937;
+    color: #1e293b;
     line-height: 1.6;
 }
 
@@ -27,57 +27,75 @@ body {
 .inner {
     max-width: 1100px;
     margin: 0 auto;
+    text-align: center;
 }
 
 /* ---------- HERO ---------- */
 .header {
     background: linear-gradient(
-        rgba(20, 24, 40, 0.65),
-        rgba(20, 24, 40, 0.65)
+        rgba(15, 23, 42, 0.65),
+        rgba(15, 23, 42, 0.65)
     ), url("hero.jpg");
     background-size: cover;
     background-position: center;
-    text-align: center;
-    padding: 70px 20px 90px;
+    padding: 65px 20px 80px;
 }
 
 .logo-container img {
-    max-width: 560px;
+    max-width: 580px;
     width: 100%;
     margin-bottom: 35px;
 }
 
-.donate-btn {
+/* ---------- BUTTONS ---------- */
+.primary-btn {
     display: inline-block;
-    padding: 15px 44px;
-    background: #4f46e5;
+    padding: 15px 46px;
+    background: #1e293b;
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     border-radius: 999px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     transition: all 0.3s ease;
+    border: 1px solid #c7d2fe;
 }
 
-.donate-btn:hover {
-    background: #4338ca;
+.primary-btn:hover {
+    background: #020617;
     transform: translateY(-2px);
 }
 
-/* ---------- TITLES & CAPTION ---------- */
+.secondary-btn {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 14px 44px;
+    background: transparent;
+    color: #1e293b;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 999px;
+    letter-spacing: 1.5px;
+    border: 1.5px solid #1e293b;
+    transition: all 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background: #1e293b;
+    color: #ffffff;
+}
+
+/* ---------- TITLES ---------- */
 .section-title {
-    text-align: center;
     font-size: 2.1rem;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     font-weight: 600;
 }
 
 .section-caption {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 55px;
     font-size: 1.05rem;
-    color: #4b5563;
+    color: #475569;
+    margin-bottom: 55px;
     letter-spacing: 1px;
 }
 
@@ -93,33 +111,20 @@ body {
     margin-bottom: 70px;
 }
 
-/* ---------- VIDEOS (NO WHITE BORDER) ---------- */
-.video-grid video {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-/* ---------- PHOTOS ---------- */
+/* ---------- MEDIA ---------- */
+video,
 .photo-grid img {
     width: 100%;
     height: 320px;
     object-fit: cover;
     border-radius: 18px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    transition: transform 0.4s ease;
-}
-
-.photo-grid img:hover {
-    transform: scale(1.03);
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-    background: #111827;
-    padding: 40px 20px;
+    background: #0f172a;
+    padding: 60px 20px;
 }
 
 /* ---------- MOBILE ---------- */
@@ -129,7 +134,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .video-grid video,
+    video,
     .photo-grid img {
         height: auto;
     }
@@ -154,8 +159,8 @@ footer {
     <div class="logo-container">
         <img src="night seder logo.png" alt="Night Kollel Logo">
     </div>
-    <a href="http://Secure.cardknox.com/khalbneitorah" class="donate-btn">
-        Support the Kollel
+    <a href="http://Secure.cardknox.com/khalbneitorah" class="primary-btn">
+        Support Our Lomdim
     </a>
 </header>
 
@@ -184,6 +189,11 @@ footer {
             <img src="IMG_4798.jpg" alt="Night Kollel">
             <img src="IMG_4818.jpg" alt="Night Kollel">
         </div>
+
+        <!-- PARTNER BUTTON -->
+        <a href="http://Secure.cardknox.com/khalbneitorah" class="secondary-btn">
+            Become a Partner
+        </a>
     </div>
 </section>
 
