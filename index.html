@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Night Kollel</title>
 
 <style>
@@ -61,7 +61,7 @@ body {
     width: 100%;
 }
 
-/* ---------- BUTTONS ---------- */
+/* Move button slightly up (about 8px = ~0.33in) */
 .primary-btn {
     display: inline-block;
     padding: 15px 46px;
@@ -74,7 +74,9 @@ body {
     border: 1px solid #c7d2fe;
     transition: all 0.3s ease;
 
-    margin-top: -5px; /* subtle lift upward */
+    margin-top: 7px; /* button below logo, so margin top positive */
+    position: relative;
+    top: -8px; /* lift up 8px */
 }
 
 .primary-btn:hover {
@@ -107,9 +109,36 @@ body {
 
 /* ---------- TITLES ---------- */
 .section-title {
-    font-size: 2.1rem;
+    font-size: 2.3rem;
     margin-bottom: 40px;
     font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #1e293b;
+}
+
+/* Glimmer shimmer effect on "Glimpse" */
+.section-title .glimmer {
+    position: relative;
+    display: inline-block;
+    color: #4f46e5;
+    font-weight: 700;
+    cursor: default;
+    /* Base gradient */
+    background: linear-gradient(90deg, #818cf8, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
 }
 
 /* ---------- MEDIA GRID ---------- */
@@ -159,7 +188,7 @@ footer {
     }
 
     .section-title {
-        font-size: 1.7rem;
+        font-size: 1.9rem;
     }
 }
 </style>
@@ -171,7 +200,7 @@ footer {
 <header class="header">
     <div class="header-inner">
         <div class="logo-container">
-            <img src="night seder logo.png" alt="Night Kollel Logo">
+            <img src="night seder logo.png" alt="Night Kollel Logo" />
         </div>
 
         <a href="http://Secure.cardknox.com/khalbneitorah" class="primary-btn">
@@ -183,23 +212,25 @@ footer {
 <!-- MEDIA SECTION -->
 <section class="section">
     <div class="inner">
-        <h2 class="section-title">A Glimpse into the Night Kollel</h2>
+        <h2 class="section-title">
+            A <span class="glimmer">Glimpse</span> into the Night Kollel
+        </h2>
 
         <!-- VIDEOS -->
         <div class="video-grid">
             <video controls>
-                <source src="video1.mp4" type="video/mp4">
+                <source src="video1.mp4" type="video/mp4" />
             </video>
 
             <video controls>
-                <source src="video2.mp4" type="video/mp4">
+                <source src="video2.mp4" type="video/mp4" />
             </video>
         </div>
 
         <!-- PHOTOS -->
         <div class="photo-grid">
-            <img src="IMG_4798.jpg" alt="Night Kollel">
-            <img src="IMG_4818.jpg" alt="Night Kollel">
+            <img src="IMG_4798.jpg" alt="Night Kollel" />
+            <img src="IMG_4818.jpg" alt="Night Kollel" />
         </div>
 
         <!-- PARTNER BUTTON -->
