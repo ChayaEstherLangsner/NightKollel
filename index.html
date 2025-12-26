@@ -38,7 +38,6 @@ body {
     ), url("hero.jpg");
     background-size: cover;
     background-position: center;
-
     min-height: 70vh;
     display: flex;
     align-items: center;
@@ -73,8 +72,7 @@ body {
     letter-spacing: 1.5px;
     border: 1px solid #c7d2fe;
     transition: background 0.3s ease, transform 0.3s ease;
-
-    margin-top: -26px; /* moved up */
+    margin-top: -26px;
 }
 
 .primary-btn:hover {
@@ -82,7 +80,6 @@ body {
     transform: translateY(-2px);
 }
 
-/* ---------- SECOND BUTTON ---------- */
 .secondary-btn {
     display: inline-block;
     margin-top: 60px;
@@ -107,11 +104,9 @@ body {
     font-size: 2.1rem;
     font-weight: 600;
     margin-bottom: 50px;
-    position: relative;
     letter-spacing: 1px;
 }
 
-/* static underline (no animation) */
 .section-title::after {
     content: "";
     display: block;
@@ -134,7 +129,6 @@ body {
     margin-bottom: 70px;
 }
 
-/* ---------- MEDIA ---------- */
 video,
 .photo-grid img {
     width: 100%;
@@ -142,6 +136,54 @@ video,
     object-fit: cover;
     border-radius: 18px;
     box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+}
+
+/* ---------- PLAQUES SECTION ---------- */
+.plaques-section {
+    background: #ffffff;
+    padding: 70px 0;
+    overflow: hidden;
+}
+
+.plaques-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.plaques-wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.plaques-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: scrollPlaques 50s linear infinite;
+}
+
+.plaques-track:hover {
+    animation-play-state: paused;
+}
+
+.plaque img {
+    height: 220px;
+    width: auto;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+}
+
+/* scrolling animation */
+@keyframes scrollPlaques {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 /* ---------- FOOTER ---------- */
@@ -168,8 +210,13 @@ footer {
         max-width: 360px;
     }
 
-    .section-title {
+    .section-title,
+    .plaques-title {
         font-size: 1.7rem;
+    }
+
+    .plaque img {
+        height: 160px;
     }
 }
 </style>
@@ -183,7 +230,6 @@ footer {
         <div class="logo-container">
             <img src="night seder logo.png" alt="Night Kollel Logo">
         </div>
-
         <a href="http://Secure.cardknox.com/khalbneitorah" class="primary-btn">
             Support Our Lomdim
         </a>
@@ -195,27 +241,45 @@ footer {
     <div class="inner">
         <h2 class="section-title">A Glimpse into the Night Kollel</h2>
 
-        <!-- VIDEOS -->
         <div class="video-grid">
             <video controls>
                 <source src="video1.mp4" type="video/mp4">
             </video>
-
             <video controls>
                 <source src="video2.mp4" type="video/mp4">
             </video>
         </div>
 
-        <!-- PHOTOS -->
         <div class="photo-grid">
             <img src="IMG_4798.jpg" alt="Night Kollel">
             <img src="IMG_4818.jpg" alt="Night Kollel">
         </div>
 
-        <!-- PARTNER BUTTON -->
         <a href="http://Secure.cardknox.com/khalbneitorah" class="secondary-btn">
             Become a Partner
         </a>
+    </div>
+</section>
+
+<!-- PLAQUES SECTION -->
+<section class="plaques-section">
+    <h2 class="plaques-title">With Gratitude to Our Past Supporters</h2>
+
+    <div class="plaques-wrapper">
+        <div class="plaques-track">
+
+            <img src="ns2022.jpg" alt="Supporters Plaque 2022">
+            <img src="ns2023.jpg" alt="Supporters Plaque 2023">
+            <img src="ns2024.jpg" alt="Supporters Plaque 2024">
+            <img src="ns.jpg" alt="Supporters Plaque">
+
+            <!-- duplicate for seamless loop -->
+            <img src="ns2022.jpg" alt="">
+            <img src="ns2023.jpg" alt="">
+            <img src="ns2024.jpg" alt="">
+            <img src="ns.jpg" alt="">
+
+        </div>
     </div>
 </section>
 
