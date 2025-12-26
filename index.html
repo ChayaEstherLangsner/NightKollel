@@ -41,7 +41,7 @@ body {
     ), url("hero.jpg");
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: #ffffff;
     text-align: center;
     padding: 120px 20px;
 }
@@ -56,7 +56,7 @@ body {
     display: inline-block;
     padding: 16px 48px;
     background: #4f46e5;
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     border-radius: 999px;
@@ -78,41 +78,44 @@ body {
 }
 
 /* ---------- VIDEOS ---------- */
-.video-wrapper {
+.video-grid {
     display: grid;
-    gap: 60px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
 .video-card {
-    background: #fff;
-    padding: 25px;
-    border-radius: 16px;
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 18px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-video {
+.video-card video {
     width: 100%;
-    border-radius: 12px;
-}
-
-/* ---------- GALLERY ---------- */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.gallery img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
     border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* ---------- PHOTOS ---------- */
+.photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     transition: transform 0.4s ease;
 }
 
-.gallery img:hover {
-    transform: scale(1.04);
+.photo-grid img:hover {
+    transform: scale(1.03);
 }
 
 /* ---------- FOOTER ---------- */
@@ -125,7 +128,17 @@ footer {
 }
 
 /* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
     .section-title {
         font-size: 1.7rem;
     }
@@ -151,36 +164,37 @@ footer {
         </a>
     </header>
 
-    <!-- VIDEOS -->
+    <!-- VIDEOS SIDE BY SIDE -->
     <section class="section">
         <div class="inner">
             <h2 class="section-title">Our Mission</h2>
 
-            <div class="video-wrapper">
+            <div class="video-grid">
                 <div class="video-card">
                     <video controls>
                         <source src="video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
                     </video>
                 </div>
 
                 <div class="video-card">
                     <video controls>
                         <source src="video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALLERY -->
+    <!-- TWO PHOTOS SIDE BY SIDE -->
     <section class="section" style="background:#ffffff;">
         <div class="inner">
             <h2 class="section-title">Life at Night Kollel</h2>
 
-            <div class="gallery">
-                <img src="IMG_4798.jpg" alt="">
-                <img src="IMG_4818.jpg" alt="">
-                <img src="IMG_4823.jpg" alt="">
+            <div class="photo-grid">
+                <img src="IMG_4798.jpg" alt="Night Kollel">
+                <img src="IMG_4818.jpg" alt="Night Kollel">
             </div>
         </div>
     </section>
