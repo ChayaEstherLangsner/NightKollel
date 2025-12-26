@@ -82,7 +82,7 @@ body {
 
 .secondary-btn {
     display: inline-block;
-    margin-top: 30px; /* moved up closer to pics */
+    margin-top: 30px; /* will appear under videos now */
     padding: 16px 52px;
     background: #1e293b;
     color: #ffffff;
@@ -122,7 +122,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-bottom: 0;
+    margin-bottom: 30px;
 }
 
 .photo-grid img {
@@ -137,8 +137,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
 video {
@@ -183,6 +182,7 @@ video {
 .plaque {
     cursor: pointer;
     flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
 .plaque img {
@@ -192,6 +192,11 @@ video {
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
     flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.plaque:hover img {
+    transform: scale(1.2);
 }
 
 @keyframes scrollPlaques {
@@ -264,12 +269,7 @@ footer {
             <img src="IMG_4818.jpg" alt="Night Kollel" />
         </div>
 
-        <!-- Become a Partner button moved closer to photos -->
-        <a href="http://Secure.cardknox.com/khalbneitorah" class="secondary-btn">
-            Become a Partner
-        </a>
-
-        <!-- Videos below photos and button -->
+        <!-- Videos below photos -->
         <div class="video-grid">
             <video controls>
                 <source src="video1.mp4" type="video/mp4" />
@@ -278,6 +278,11 @@ footer {
                 <source src="video2.mp4" type="video/mp4" />
             </video>
         </div>
+
+        <!-- Become a Partner button under videos -->
+        <a href="http://Secure.cardknox.com/khalbneitorah" class="secondary-btn">
+            Become a Partner
+        </a>
     </div>
 </section>
 
