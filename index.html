@@ -241,6 +241,29 @@ video {
     opacity: 1;
     pointer-events: auto;
 }
+    .plaques-arrow {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.plaques-container::before,
+.plaques-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 90px;
+    height: 100%;
+    z-index: 4;
+}
+
+.plaques-container::before { left: 0; }
+.plaques-container::after { right: 0; }
+
+.plaques-container:hover .plaques-arrow,
+.plaques-arrow:hover {
+    opacity: 1;
+    pointer-events: auto;
+}
     /* ---------- PLAQUE MODAL ---------- */
 .plaque-modal {
     position: fixed;
