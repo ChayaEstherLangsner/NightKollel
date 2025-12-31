@@ -156,8 +156,8 @@ video {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding-left: 80px;  /* added padding to include arrows */
-    padding-right: 80px; /* added padding to include arrows */
+    padding-left: 80px;  /* space for arrows */
+    padding-right: 80px; /* space for arrows */
 }
 
 .plaques-wrapper {
@@ -225,11 +225,11 @@ video {
 }
 
 .plaques-arrow.left {
-    left: 0; /* inside container */
+    left: 0;
 }
 
 .plaques-arrow.right {
-    right: 0; /* inside container */
+    right: 0;
 }
 
 /* Show arrows when container or arrow hovered */
@@ -336,6 +336,7 @@ video {
     .logo-container img { max-width: 360px; }
     .plaque img { height: 240px; }
 }
+
 /* ---------- MOBILE IMPROVEMENTS ---------- */
 @media (max-width: 768px) {
 
@@ -464,16 +465,14 @@ function scrollPlaques(dir) {
         behavior: "smooth"
     });
 
-    // Clear any existing timeout
     if (scrollTimeout) clearTimeout(scrollTimeout);
 
-    // Resume animation only after user stops scrolling for 2s
+    // Resume animation 2s after scrolling stops
     scrollTimeout = setTimeout(() => {
         resumeAnimation();
     }, 2000);
 }
 
-// Pause animation while user is scrolling manually (mouse drag or wheel)
 wrapper.addEventListener('scroll', () => {
     pauseAnimation();
 
@@ -484,14 +483,12 @@ wrapper.addEventListener('scroll', () => {
     }, 2000);
 });
 
-// Pause animation on hover of wrapper (optional)
 wrapper.addEventListener('mouseenter', pauseAnimation);
+
 wrapper.addEventListener('mouseleave', () => {
-    // Resume only if no scroll activity in last 2s
+    // Immediately resume animation on mouse leave
     if (scrollTimeout) clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        resumeAnimation();
-    }, 2000);
+    resumeAnimation();
 });
 
 function openPlaque(src) {
@@ -505,6 +502,7 @@ function closePlaque() {
     document.getElementById("plaqueModal").classList.remove("active");
 }
 </script>
+
 <!-- PLAQUE MODAL -->
 <div id="plaqueModal" class="plaque-modal" onclick="closePlaque()">
     <img id="plaqueModalImg" src="" alt="Plaque">
