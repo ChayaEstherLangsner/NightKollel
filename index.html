@@ -231,14 +231,13 @@ video {
     .plaque {
     position: relative;
 }
-    /* show arrows only on interaction */
-.plaques-arrow {
+  .plaques-arrow {
     opacity: 0;
     pointer-events: none;
 }
 
 .plaques-container:hover .plaques-arrow,
-.plaques-container:focus-within .plaques-arrow {
+.plaques-arrow:hover {
     opacity: 1;
     pointer-events: auto;
 }
