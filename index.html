@@ -446,16 +446,54 @@ video {
 const wrapper = document.getElementById("plaquesWrapper");
 const track = document.getElementById("plaquesTrack");
 
-function scrollPlaques(dir) {
+let scrollTimeout;
+
+function pauseAnimation() {
     track.style.animationPlayState = "paused";
+}
+
+function resumeAnimation() {
+    track.style.animationPlayState = "running";
+}
+
+function scrollPlaques(dir) {
+    pauseAnimation();
+
     wrapper.scrollBy({
         left: dir * 420,
         behavior: "smooth"
     });
-    setTimeout(() => {
-        track.style.animationPlayState = "running";
+
+    // Clear any existing timeout
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+
+    // Resume animation only after user stops scrolling for 2s
+    scrollTimeout = setTimeout(() => {
+        resumeAnimation();
     }, 2000);
 }
+
+// Pause animation while user is scrolling manually (mouse drag or wheel)
+wrapper.addEventListener('scroll', () => {
+    pauseAnimation();
+
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+        resumeAnimation();
+    }, 2000);
+});
+
+// Pause animation on hover of wrapper (optional)
+wrapper.addEventListener('mouseenter', pauseAnimation);
+wrapper.addEventListener('mouseleave', () => {
+    // Resume only if no scroll activity in last 2s
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        resumeAnimation();
+    }, 2000);
+});
+
 function openPlaque(src) {
     const modal = document.getElementById("plaqueModal");
     const img = document.getElementById("plaqueModalImg");
