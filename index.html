@@ -218,6 +218,24 @@ video {
     .logo-container img { max-width: 360px; }
     .plaque img { height: 240px; }
 }
+    /* ---------- MOBILE IMPROVEMENTS ---------- */
+@media (max-width: 768px) {
+
+    /* stop auto scroll on mobile */
+    .plaques-track {
+        animation: none;
+    }
+
+    /* subtle tap feedback */
+    .plaque img:active {
+        transform: scale(1.05);
+    }
+
+    /* reduce spacing so only 1–2 plaques show */
+    .plaques-track {
+        gap: 60px;
+    }
+}
 </style>
 </head>
 
