@@ -64,23 +64,27 @@ body {
 /* ---------- BUTTONS ---------- */
 .primary-btn {
     margin-top: -26px;
-    padding: 16px 52px;
-    background: linear-gradient(135deg, #1e293b, #334155);
-    color: #fff;
+    padding: 16px 54px;
+    background: linear-gradient(135deg, #ffffff, #f1f5f9);
+    color: #0f172a;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 800;
     border-radius: 999px;
-    letter-spacing: 1.6px;
+    letter-spacing: 1.8px;
+
     box-shadow:
-        0 10px 30px rgba(30,41,59,0.45),
-        inset 0 0 0 1px rgba(255,255,255,0.12);
-    transition: all 0.3s ease;
+        0 20px 50px rgba(0,0,0,0.45),
+        0 0 0 6px rgba(255,255,255,0.08),
+        inset 0 0 0 1px rgba(15,23,42,0.12);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .primary-btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
     box-shadow:
-        0 18px 45px rgba(30,41,59,0.6);
+        0 30px 70px rgba(0,0,0,0.6),
+        0 0 0 10px rgba(255,255,255,0.12);
 }
 
 .secondary-btn {
