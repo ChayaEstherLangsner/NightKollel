@@ -22,14 +22,9 @@ body {
 /* ---------- GLOBAL ---------- */
 .section {
     padding: 70px 20px;
-}
-.section {
     background: linear-gradient(#f4f6fb, #eef2ff);
 }
-    .section {
-    padding: 70px 20px;
-    background: linear-gradient(#f4f6fb, #eef2ff);
-}
+
 .inner {
     max-width: 1100px;
     margin: 0 auto;
@@ -141,7 +136,7 @@ video {
     border-radius: 18px;
     box-shadow: 0 14px 35px rgba(15,23,42,0.18);
 }
-    video {
+video {
     background: #000;
 }
 
@@ -161,6 +156,8 @@ video {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
+    padding-left: 80px;  /* added padding to include arrows */
+    padding-right: 80px; /* added padding to include arrows */
 }
 
 .plaques-wrapper {
@@ -171,12 +168,14 @@ video {
 .plaques-wrapper::-webkit-scrollbar {
     display: none;
 }
-    .plaques-wrapper {
+
+.plaques-wrapper {
     scroll-snap-type: x mandatory;
 }
 
 .plaque {
     scroll-snap-align: center;
+    position: relative;
 }
 
 .plaques-track {
@@ -215,7 +214,9 @@ video {
     font-size: 26px;
     cursor: pointer;
     z-index: 5;
-    transition: transform 0.25s ease, background 0.25s ease;
+    transition: transform 0.25s ease, background 0.25s ease, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .plaques-arrow:hover {
@@ -223,27 +224,19 @@ video {
     transform: translateY(-50%) scale(1.08);
 }
 
-.plaques-arrow.left { left: -70px; }
-.plaques-arrow.right { right: -70px; }
-    .plaque {
-    position: relative;
-}
-    .plaque {
-    position: relative;
-}
-  .plaques-arrow {
-    opacity: 0;
-    pointer-events: none;
+.plaques-arrow.left {
+    left: 0; /* inside container */
 }
 
+.plaques-arrow.right {
+    right: 0; /* inside container */
+}
+
+/* Show arrows when container or arrow hovered */
 .plaques-container:hover .plaques-arrow,
 .plaques-arrow:hover {
     opacity: 1;
     pointer-events: auto;
-}
-    .plaques-arrow {
-    opacity: 0;
-    pointer-events: none;
 }
 
 .plaques-container::before,
@@ -259,12 +252,7 @@ video {
 .plaques-container::before { left: 0; }
 .plaques-container::after { right: 0; }
 
-.plaques-container:hover .plaques-arrow,
-.plaques-arrow:hover {
-    opacity: 1;
-    pointer-events: auto;
-}
-    /* ---------- PLAQUE MODAL ---------- */
+/* ---------- PLAQUE MODAL ---------- */
 .plaque-modal {
     position: fixed;
     inset: 0;
@@ -295,38 +283,13 @@ video {
     from { transform: scale(0.95); opacity: 0; }
     to   { transform: scale(1); opacity: 1; }
 }
-    @keyframes softPulse {
+@keyframes softPulse {
     0%, 100% { box-shadow: 0 0 0 6px rgba(255,255,255,0.08); }
     50%      { box-shadow: 0 0 0 12px rgba(255,255,255,0.18); }
 }
 
 .primary-btn {
     animation: softPulse 3.5s ease-in-out infinite;
-}
-
-.plaque::after {
-    content: "Tap to view";
-    position: absolute;
-    bottom: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(15,23,42,0.75);
-    color: #fff;
-    font-size: 12px;
-    padding: 5px 12px;
-    border-radius: 999px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.plaque:hover::after {
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .plaque::after {
-        opacity: 1;
-    }
 }
 
 .plaque::after {
@@ -373,7 +336,7 @@ video {
     .logo-container img { max-width: 360px; }
     .plaque img { height: 240px; }
 }
-    /* ---------- MOBILE IMPROVEMENTS ---------- */
+/* ---------- MOBILE IMPROVEMENTS ---------- */
 @media (max-width: 768px) {
 
     /* stop auto scroll on mobile */
@@ -414,8 +377,8 @@ video {
         <h2 class="section-title">A Glimpse into the Night Kollel</h2>
 
         <div class="photo-grid">
-            <img src="IMG_4798.jpg">
-            <img src="IMG_4818.jpg">
+            <img src="IMG_4798.jpg" alt="Photo 1">
+            <img src="IMG_4818.jpg" alt="Photo 2">
         </div>
 
         <div class="video-grid">
