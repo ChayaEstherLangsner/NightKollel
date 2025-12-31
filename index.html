@@ -153,6 +153,13 @@ video {
 .plaques-wrapper::-webkit-scrollbar {
     display: none;
 }
+    .plaques-wrapper {
+    scroll-snap-type: x mandatory;
+}
+
+.plaque {
+    scroll-snap-align: center;
+}
 
 .plaques-track {
     display: flex;
