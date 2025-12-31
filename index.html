@@ -262,6 +262,14 @@ video {
     from { transform: scale(0.95); opacity: 0; }
     to   { transform: scale(1); opacity: 1; }
 }
+    @keyframes softPulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(255,255,255,0.08); }
+    50%      { box-shadow: 0 0 0 12px rgba(255,255,255,0.18); }
+}
+
+.primary-btn {
+    animation: softPulse 3.5s ease-in-out infinite;
+}
 
 .plaque::after {
     content: "Tap to view";
