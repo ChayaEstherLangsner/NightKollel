@@ -397,19 +397,38 @@ video {
         <div class="plaques-wrapper" id="plaquesWrapper">
             <div class="plaques-track" id="plaquesTrack">
 
-                <a class="plaque" href="ns2022.jpg" target="_blank"><img src="ns2022.jpg"></a>
-                <a class="plaque" href="ns2023.jpg" target="_blank"><img src="ns2023.jpg"></a>
-                <a class="plaque" href="ns2024.jpg" target="_blank"><img src="ns2024.jpg"></a>
-                <a class="plaque" href="2ns2024.jpg" target="_blank"><img src="2ns2024.jpg"></a>
-                <a class="plaque" href="ns.jpg" target="_blank"><img src="ns.jpg"></a>
+<a class="plaque" onclick="openPlaque('ns2022.jpg')">
+    <img src="ns2022.jpg" alt="Supporter Plaque 2022">
+</a>
+<a class="plaque" onclick="openPlaque('ns2023.jpg')">
+    <img src="ns2023.jpg" alt="Supporter Plaque 2023">
+</a>
+<a class="plaque" onclick="openPlaque('ns2024.jpg')">
+    <img src="ns2024.jpg" alt="Supporter Plaque 2024">
+</a>
+<a class="plaque" onclick="openPlaque('2ns2024.jpg')">
+    <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)">
+</a>
+<a class="plaque" onclick="openPlaque('ns.jpg')">
+    <img src="ns.jpg" alt="Supporter Plaque">
+</a>
 
-                <!-- duplicate -->
-                <a class="plaque" href="ns2022.jpg" target="_blank"><img src="ns2022.jpg"></a>
-                <a class="plaque" href="ns2023.jpg" target="_blank"><img src="ns2023.jpg"></a>
-                <a class="plaque" href="ns2024.jpg" target="_blank"><img src="ns2024.jpg"></a>
-                <a class="plaque" href="2ns2024.jpg" target="_blank"><img src="2ns2024.jpg"></a>
-                <a class="plaque" href="ns.jpg" target="_blank"><img src="ns.jpg"></a>
-
+<!-- duplicate for seamless loop -->
+<a class="plaque" onclick="openPlaque('ns2022.jpg')">
+    <img src="ns2022.jpg" alt="Supporter Plaque 2022">
+</a>
+<a class="plaque" onclick="openPlaque('ns2023.jpg')">
+    <img src="ns2023.jpg" alt="Supporter Plaque 2023">
+</a>
+<a class="plaque" onclick="openPlaque('ns2024.jpg')">
+    <img src="ns2024.jpg" alt="Supporter Plaque 2024">
+</a>
+<a class="plaque" onclick="openPlaque('2ns2024.jpg')">
+    <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)">
+</a>
+<a class="plaque" onclick="openPlaque('ns.jpg')">
+    <img src="ns.jpg" alt="Supporter Plaque">
+</a>
             </div>
         </div>
     </div>
@@ -428,6 +447,16 @@ function scrollPlaques(dir) {
     setTimeout(() => {
         track.style.animationPlayState = "running";
     }, 2000);
+}
+function openPlaque(src) {
+    const modal = document.getElementById("plaqueModal");
+    const img = document.getElementById("plaqueModalImg");
+    img.src = src;
+    modal.classList.add("active");
+}
+
+function closePlaque() {
+    document.getElementById("plaqueModal").classList.remove("active");
 }
 </script>
 <!-- PLAQUE MODAL -->
