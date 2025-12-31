@@ -213,6 +213,34 @@ video {
     .plaque {
     position: relative;
 }
+    .plaque {
+    position: relative;
+}
+
+.plaque::after {
+    content: "Tap to view";
+    position: absolute;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15,23,42,0.75);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.plaque:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .plaque::after {
+        opacity: 1;
+    }
+}
 
 .plaque::after {
     content: "Tap to view";
