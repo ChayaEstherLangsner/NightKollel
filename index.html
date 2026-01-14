@@ -1,234 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Night Kollel - Bein Hazmanim</title>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: system-ui, -apple-system, Segoe UI, sans-serif;
-        background: #ffffff;
-        color: #0f172a;
-        line-height: 1.5;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f6fb;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  /* ---------- GLOBAL ---------- */
+  .section {
+    padding: 70px 20px;
+    background: linear-gradient(#f4f6fb, #eef2ff);
+  }
+
+  .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ---------- HERO ---------- */
+  .header {
+    background: linear-gradient(
+        rgba(15, 23, 42, 0.65),
+        rgba(15, 23, 42, 0.65)
+      ),
+      url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container img {
+    max-width: 580px;
+    width: 100%;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .primary-btn {
+    margin-top: -26px;
+    padding: 16px 54px;
+    background: linear-gradient(135deg, #ffffff, #f1f5f9);
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 999px;
+    letter-spacing: 1.8px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45),
+      0 0 0 6px rgba(255, 255, 255, 0.08), inset 0 0 0 1px rgba(15, 23, 42, 0.12);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+    position: relative;
+  }
+
+  .primary-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 10px rgba(255, 255, 255, 0.12);
+  }
+
+  .secondary-btn {
+    margin-top: 34px;
+    padding: 18px 58px;
+    background: linear-gradient(135deg, #020617, #1e293b);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 999px;
+    letter-spacing: 1.8px;
+    box-shadow: 0 18px 50px rgba(2, 6, 23, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .secondary-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 28px 65px rgba(2, 6, 23, 0.75);
+  }
+
+  /* ---------- TITLES ---------- */
+  .section-title {
+    font-size: 2.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    color: #475569;
+    margin-bottom: 30px;
+  }
+
+  .section-title::after {
+    content: "";
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5, #818cf8, #4f46e5);
+    display: block;
+    margin: 16px auto 0;
+    border-radius: 2px;
+  }
+
+  /* ---------- ABOUT THE PROGRAM ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .about-box {
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+    text-align: center;
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 1.3rem;
+    user-select: none;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .about-box:hover {
+    box-shadow: 0 20px 55px rgba(15, 23, 42, 0.15);
+  }
+
+  /* ---------- GET A ZECHUT SECTION ---------- */
+  .zechut-section {
+    background: #fff;
+    padding: 70px 20px;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    border-radius: 18px;
+    box-shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+    text-align: center;
+  }
+
+  .zechut-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #1e293b;
+  }
+
+  .zechut-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #475569;
+    margin-bottom: 30px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+  }
+
+  .zechut-btn {
+    display: inline-block;
+    background: #4f46e5;
+    color: #fff;
+    padding: 16px 50px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1.2px;
+    text-decoration: none;
+    box-shadow: 0 16px 45px rgba(79, 70, 229, 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .zechut-btn:hover {
+    background-color: #4338ca;
+    box-shadow: 0 22px 65px rgba(67, 56, 202, 0.8);
+  }
+
+  /* ---------- DONATION TIERS ---------- */
+  .tier-grid {
+    margin-top: 48px;
+    display: grid;
+    gap: 28px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-items: center;
+  }
+
+  .tier-card {
+    background: #fff;
+    padding: 28px 24px;
+    border-radius: 18px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
+    width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .tier-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  }
+
+  .tier-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #1e293b;
+  }
+
+  .tier-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 10px;
+  }
+
+  .tier-desc {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #475569;
+  }
+
+  /* ---------- MEDIA ---------- */
+  .photo-grid,
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+
+  .photo-grid img,
+  video {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+  }
+
+  video {
+    background: #000;
+  }
+
+  /* ---------- PLAQUES ---------- */
+  .plaques-section {
+    background: #fff;
+    padding: 70px 0;
+  }
+
+  .plaques-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #1e293b;
+  }
+
+  .plaques-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 80px; /* space for arrows */
+    padding-right: 80px; /* space for arrows */
+  }
+
+  .plaques-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .plaques-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .plaques-wrapper {
+    scroll-snap-type: x mandatory;
+  }
+
+  .plaque {
+    scroll-snap-align: center;
+    position: relative;
+  }
+
+  .plaques-track {
+    display: flex;
+    gap: 150px;
+    width: max-content;
+    animation: scrollPlaques 25s linear infinite;
+  }
+
+  .plaques-track:hover {
+    animation-play-state: paused;
+  }
+
+  .plaque img {
+    height: 480px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .plaque:hover img {
+    transform: scale(1.15);
+  }
+
+  /* arrows */
+  .plaques-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(15, 23, 42, 0.9);
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 5;
+    transition: transform 0.25s ease, background 0.25s ease, opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .plaques-arrow:hover {
+    background: #020617;
+    transform: translateY(-50%) scale(1.08);
+  }
+
+  .plaques-arrow.left {
+    left: 0;
+  }
+
+  .plaques-arrow.right {
+    right: 0;
+  }
+
+  /* Show arrows when container or arrow hovered */
+  .plaques-container:hover .plaques-arrow,
+  .plaques-arrow:hover {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .plaques-container::before,
+  .plaques-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 90px;
+    height: 100%;
+    z-index: 4;
+  }
+
+  .plaques-container::before {
+    left: 0;
+  }
+
+  .plaques-container::after {
+    right: 0;
+  }
+
+  /* ---------- PLAQUE MODAL ---------- */
+  .plaque-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+  }
+
+  .plaque-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 14px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    animation: zoomIn 0.3s ease;
+  }
+
+  .plaque-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes softPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+    }
+    50% {
+      box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.18);
+    }
+  }
+
+  .primary-btn {
+    animation: softPulse 3.5s ease-in-out infinite;
+  }
+
+  .plaque::after {
+    content: "Tap to view";
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.75);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    user-select: none;
+  }
+
+  .plaque:hover::after {
+    opacity: 1;
+  }
+
+  @media (max-width: 900px) {
+    .photo-grid,
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
+    .plaques-arrow.left {
+      left: 10px;
+    }
+    .plaques-arrow.right {
+      right: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-container img {
+      max-width: 360px;
+    }
+    .plaque img {
+      height: 240px;
+    }
+  }
+
+  /* ---------- MOBILE IMPROVEMENTS ---------- */
+  @media (max-width: 768px) {
+    /* stop auto scroll on mobile */
+    .plaques-track {
+      animation: none;
     }
 
-    /* global */
-    .container {
-        width: 92%;
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 60px 0;
+    /* subtle tap feedback */
+    .plaque img:active {
+      transform: scale(1.05);
     }
 
-    h2.section-title {
-        font-size: 2rem;
-        font-weight: 700;
-        text-align: center;
-        margin-bottom: 22px;
+    /* reduce spacing so only 1–2 plaques show */
+    .plaques-track {
+      gap: 60px;
     }
-
-    /* sleek divider */
-    .divider {
-        width: 120px;
-        height: 3px;
-        margin: 0 auto 45px;
-        background: linear-gradient(90deg, #4f46e5, #818cf8, #4f46e5);
-        border-radius: 2px;
-    }
-
-    /* hero / banner */
-    .hero {
-        background: linear-gradient(#eef2ff, #ffffff);
-        padding: 90px 0;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 2.6rem;
-        font-weight: 800;
-        margin-bottom: 14px;
-    }
-
-    .hero p {
-        font-size: 1.1rem;
-        max-width: 760px;
-        margin: 0 auto;
-        color: #475569;
-    }
-
-    /* program section */
-    .program-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 28px;
-        margin-top: 45px;
-    }
-
-    .program-box {
-        background: #ffffff;
-        padding: 32px;
-        border-radius: 18px;
-        text-align: center;
-        box-shadow: 0 10px 35px rgba(15,23,42,0.08);
-    }
-
-    .program-box strong {
-        font-size: 1.4rem;
-        font-weight: 800;
-        display: block;
-        margin-bottom: 8px;
-        color: #1e293b;
-    }
-
-    .program-box span {
-        font-size: 1rem;
-        color: #475569;
-    }
-
-    /* sponsor cards */
-    .tier-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 28px;
-        margin-top: 40px;
-    }
-
-    .tier-card {
-        background: #ffffff;
-        padding: 28px;
-        border-radius: 18px;
-        box-shadow: 0 12px 40px rgba(15,23,42,0.10);
-        text-align: center;
-        transition: transform .25s ease, box-shadow .25s ease;
-    }
-
-    .tier-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 18px 55px rgba(15,23,42,0.17);
-    }
-
-    .tier-card h3 {
-        margin: 0 0 10px;
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
-
-    .tier-card .price {
-        font-size: 1.7rem;
-        font-weight: 800;
-        margin-bottom: 10px;
-        color: #111827;
-    }
-
-    .tier-card .desc {
-        font-size: 0.9rem;
-        color: #475569;
-    }
-
-    /* Button */
-    .cta-btn {
-        display: inline-block;
-        background: #4f46e5;
-        color: white;
-        padding: 14px 34px;
-        border-radius: 10px;
-        font-size: 1rem;
-        font-weight: 600;
-        text-decoration: none;
-        margin: 15px auto 0;
-        transition: background .25s ease;
-    }
-
-    .cta-btn:hover {
-        background: #4338ca;
-    }
-
-    /* footer space */
-    footer {
-        padding: 70px 0;
-        text-align: center;
-        color: #475569;
-        font-size: 0.85rem;
-    }
-
+  }
 </style>
 </head>
 
 <body>
-
-<!-- HERO -->
-<section class="hero">
-    <h1>Night Kollel Bein Hazmanim</h1>
-    <p>Over 60 Avreichim learning nightly — keeping Torah strong during Bein Hazmanim.</p>
-</section>
-
-<!-- ABOUT SECTION -->
-<section class="container">
-    <h2 class="section-title">About the Program</h2>
-    <div class="divider"></div>
-
-    <div class="program-grid">
-        <div class="program-box">
-            <strong>60+</strong>
-            <span>Avreichim Learning</span>
-        </div>
-        <div class="program-box">
-            <strong>3+ Weeks</strong>
-            <span>Nightly Learning</span>
-        </div>
-        <div class="program-box">
-            <strong>Community</strong>
-            <span>Supporting Torah</span>
-        </div>
-        <div class="program-box">
-            <strong>Mission</strong>
-            <span>Help Avreichim Before Pesach</span>
-        </div>
+  <!-- HERO -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo-container">
+        <img src="night seder logo.png" alt="Night Kollel Logo" />
+      </div>
+      <a
+        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
+        class="primary-btn"
+        >Become A Partner</a
+      >
     </div>
-</section>
+  </header>
 
-<!-- SPONSOR SECTION -->
-<section class="container">
-    <h2 class="section-title">Sponsor a Zechut</h2>
-    <div class="divider"></div>
+  <!-- MEDIA -->
+  <section class="section">
+    <div class="inner">
+      <h2 class="section-title">A Glimpse into the Night Kollel</h2>
 
-    <a href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh" class="cta-btn">
-        Get a Zechut
-    </a>
+      <div class="photo-grid">
+        <img src="IMG_4798.jpg" alt="Photo 1" />
+        <img src="IMG_4818.jpg" alt="Photo 2" />
+      </div>
+
+      <div class="video-grid">
+        <video controls><source src="video1.mp4" /></video>
+        <video controls><source src="video2.mp4" /></video>
+      </div>
+
+      <a
+        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
+        class="secondary-btn"
+        >Support Our Lomdim</a
+      >
+    </div>
+  </section>
+
+  <!-- ABOUT THE PROGRAM -->
+  <section class="section" style="padding-top:40px; padding-bottom:40px;">
+    <div class="inner" style="max-width: 920px; text-align:center;">
+      <h2 class="section-title">About the Program</h2>
+      <div class="section-subtitle">
+        Every night throughout Bein Hazmanim we have over 60 Avreichim who come
+        learn.
+      </div>
+      <div class="section-subtitle">
+        Our Mission: We keep learning going throughout our off time, and help
+        the kollel avreichim in our community before Pesach by giving them a
+        check.
+      </div>
+    </div>
+  </section>
+
+  <!-- GET A ZECHUT -->
+  <section class="zechut-section">
+    <h2 class="zechut-title">GET A ZECHUT</h2>
+    <p class="zechut-subtitle">
+      Support the Night Kollel and keep Torah thriving throughout Bein Hazmanim
+    </p>
+    <a
+      href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
+      class="zechut-btn"
+      >Become a Partner</a
+    >
 
     <div class="tier-grid">
-        <div class="tier-card">
-            <h3>Torah Partner</h3>
-            <div class="price">$101</div>
-            <div class="desc">One Hour of Learning</div>
-        </div>
+      <div class="tier-card">
+        <h3>Torah Partner</h3>
+        <div class="tier-price">$101</div>
+        <div class="tier-desc">One Hour of Learning</div>
+      </div>
 
-        <div class="tier-card">
-            <h3>One Hour of Learning</h3>
-            <div class="price">$252</div>
-            <div class="desc">Sponsor Torah Time</div>
-        </div>
+      <div class="tier-card">
+        <h3>One Hour of Learning</h3>
+        <div class="tier-price">$252</div>
+        <div class="tier-desc">Sponsor Torah Time</div>
+      </div>
 
-        <div class="tier-card">
-            <h3>One Avreich</h3>
-            <div class="price">$501</div>
-            <div class="desc">Full Program Support</div>
-        </div>
+      <div class="tier-card">
+        <h3>One Avreich</h3>
+        <div class="tier-price">$501</div>
+        <div class="tier-desc">Support One Avreich</div>
+      </div>
 
-        <div class="tier-card">
-            <h3>One Night of Learning</h3>
-            <div class="price">$1,000</div>
-            <div class="desc">Sponsor the Entire Night</div>
-        </div>
+      <div class="tier-card">
+        <h3>One Night of Learning</h3>
+        <div class="tier-price">$1,000</div>
+        <div class="tier-desc">Sponsor a Night of Learning</div>
+      </div>
     </div>
-</section>
+  </section>
 
-<footer>
-    Night Kollel Bein Hazmanim — All Rights Reserved
-</footer>
+  <!-- PLAQUES -->
+  <section class="plaques-section">
+    <h2 class="plaques-title">
+      With Gratitude to the Sponsors Who Made the Program Happen Over the Years
+    </h2>
 
+    <div class="plaques-container">
+      <button class="plaques-arrow left" onclick="scrollPlaques(-1)">‹</button>
+      <button class="plaques-arrow right" onclick="scrollPlaques(1)">›</button>
+
+      <div class="plaques-wrapper" id="plaquesWrapper">
+        <div class="plaques-track" id="plaquesTrack">
+          <a class="plaque" onclick="openPlaque('ns2022.jpg')">
+            <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
+          </a>
+          <a class="plaque" onclick="openPlaque('ns2023.jpg')">
+            <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
+          </a>
+          <a class="plaque" onclick="openPlaque('ns2024.jpg')">
+            <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
+          </a>
+          <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
+            <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
+          </a>
+          <a class="plaque" onclick="openPlaque('ns.jpg')">
+            <img src="ns.jpg" alt="Supporter Plaque" />
+          </a>
+
+          <!-- duplicate for seamless loop -->
+          <a class="plaque" onclick="openPlaque('ns2022.jpg')">
+            <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
+          </a>
+          <a class="plaque" onclick="openPlaque('ns2023.jpg')">
+            <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
+          </a>
+          <a class="plaque" onclick="openPlaque('ns2024.jpg')">
+            <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
+          </a>
+          <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
+            <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
+          </a>
+          <a class="plaque" onclick="openPlaque('ns.jpg')">
+            <img src="ns.jpg" alt="Supporter Plaque" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const wrapper = document.getElementById("plaquesWrapper");
+    const track = document.getElementById("plaquesTrack");
+
+    let scrollTimeout;
+
+    function pauseAnimation() {
+      track.style.animationPlayState = "paused";
+    }
+
+    function resumeAnimation() {
+      track.style.animationPlayState = "running";
+    }
+
+    function scrollPlaques(dir) {
+      pauseAnimation();
+
+      wrapper.scrollBy({
+        left: dir * 420,
+        behavior: "smooth",
+      });
+
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+
+      // Resume animation 2s after scrolling stops
+      scrollTimeout = setTimeout(() => {
+        resumeAnimation();
+      }, 2000);
+    }
+
+    wrapper.addEventListener("scroll", () => {
+      pauseAnimation();
+
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+
+      scrollTimeout = setTimeout(() => {
+        resumeAnimation();
+      }, 2000);
+    });
+
+    wrapper.addEventListener("mouseenter", pauseAnimation);
+
+    wrapper.addEventListener("mouseleave", () => {
+      // Immediately resume animation on mouse leave
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      resumeAnimation();
+    });
+
+    function openPlaque(src) {
+      const modal = document.getElementById("plaqueModal");
+      const img = document.getElementById("plaqueModalImg");
+      img.src = src;
+      modal.classList.add("active");
+    }
+
+    function closePlaque() {
+      document.getElementById("plaqueModal").classList.remove("active");
+    }
+  </script>
+
+  <!-- PLAQUE MODAL -->
+  <div id="plaqueModal" class="plaque-modal" onclick="closePlaque()">
+    <img id="plaqueModalImg" src="" alt="Plaque" />
+  </div>
 </body>
 </html>
