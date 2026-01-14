@@ -58,32 +58,9 @@
   }
 
   /* ---------- BUTTONS ---------- */
-  .primary-btn {
-    margin-top: -26px;
+  a.btn {
+    display: inline-block;
     padding: 16px 54px;
-    background: linear-gradient(135deg, #ffffff, #f1f5f9);
-    color: #0f172a;
-    text-decoration: none;
-    font-weight: 800;
-    border-radius: 999px;
-    letter-spacing: 1.8px;
-
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45),
-      0 0 0 6px rgba(255, 255, 255, 0.08), inset 0 0 0 1px rgba(15, 23, 42, 0.12);
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 10;
-    position: relative;
-  }
-
-  .primary-btn:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 10px rgba(255, 255, 255, 0.12);
-  }
-
-  .secondary-btn {
-    margin-top: 34px;
-    padding: 18px 58px;
     background: linear-gradient(135deg, #020617, #1e293b);
     color: #fff;
     text-decoration: none;
@@ -92,9 +69,10 @@
     letter-spacing: 1.8px;
     box-shadow: 0 18px 50px rgba(2, 6, 23, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
     transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
   }
-
-  .secondary-btn:hover {
+  a.btn:hover {
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0 28px 65px rgba(2, 6, 23, 0.75);
   }
@@ -104,6 +82,7 @@
     font-size: 2.1rem;
     font-weight: 600;
     margin-bottom: 10px;
+    color: #1e293b;
   }
 
   .section-subtitle {
@@ -116,41 +95,30 @@
     content: "";
     width: 120px;
     height: 4px;
-    background: linear-gradient(90deg, #4f46e5, #818cf8, #4f46e5);
+    background: linear-gradient(90deg, #020617, #1e293b, #020617);
     display: block;
     margin: 16px auto 0;
     border-radius: 2px;
   }
 
   /* ---------- ABOUT THE PROGRAM ---------- */
-  .about-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-  }
-
-  .about-box {
-    background: #fff;
-    padding: 30px 20px;
-    border-radius: 16px;
-    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+  .about-section {
+    max-width: 920px;
+    margin: 0 auto 60px;
     text-align: center;
-    color: #1e293b;
-    font-weight: 600;
-    font-size: 1.3rem;
-    user-select: none;
-    transition: box-shadow 0.3s ease;
   }
-
-  .about-box:hover {
-    box-shadow: 0 20px 55px rgba(15, 23, 42, 0.15);
+  .about-section p {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
   }
 
   /* ---------- GET A ZECHUT SECTION ---------- */
   .zechut-section {
     background: #fff;
-    padding: 70px 20px;
+    padding: 70px 20px 40px;
     max-width: 900px;
     margin: 0 auto 80px;
     border-radius: 18px;
@@ -176,31 +144,12 @@
     line-height: 1.4;
   }
 
-  .zechut-btn {
-    display: inline-block;
-    background: #4f46e5;
-    color: #fff;
-    padding: 16px 50px;
-    border-radius: 12px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 1.2px;
-    text-decoration: none;
-    box-shadow: 0 16px 45px rgba(79, 70, 229, 0.6);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .zechut-btn:hover {
-    background-color: #4338ca;
-    box-shadow: 0 22px 65px rgba(67, 56, 202, 0.8);
-  }
-
   /* ---------- DONATION TIERS ---------- */
   .tier-grid {
-    margin-top: 48px;
+    margin-top: 10px;
     display: grid;
-    gap: 28px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px 50px;
+    grid-template-columns: repeat(2, 1fr);
     justify-items: center;
   }
 
@@ -418,40 +367,16 @@
     }
   }
 
-  @keyframes softPulse {
-    0%,
-    100% {
-      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+  @keyframes scrollPlaques {
+    from {
+      transform: translateX(0);
     }
-    50% {
-      box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.18);
+    to {
+      transform: translateX(-50%);
     }
   }
 
-  .primary-btn {
-    animation: softPulse 3.5s ease-in-out infinite;
-  }
-
-  .plaque::after {
-    content: "Tap to view";
-    position: absolute;
-    bottom: 12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(15, 23, 42, 0.75);
-    color: #fff;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    user-select: none;
-  }
-
-  .plaque:hover::after {
-    opacity: 1;
-  }
-
+  /* ---------- MOBILE ---------- */
   @media (max-width: 900px) {
     .photo-grid,
     .video-grid {
@@ -462,6 +387,10 @@
     }
     .plaques-arrow.right {
       right: 10px;
+    }
+    .tier-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
   }
 
@@ -503,48 +432,25 @@
       </div>
       <a
         href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-        class="primary-btn"
+        class="btn"
         >Become A Partner</a
       >
     </div>
   </header>
 
-  <!-- MEDIA -->
-  <section class="section">
-    <div class="inner">
-      <h2 class="section-title">A Glimpse into the Night Kollel</h2>
-
-      <div class="photo-grid">
-        <img src="IMG_4798.jpg" alt="Photo 1" />
-        <img src="IMG_4818.jpg" alt="Photo 2" />
-      </div>
-
-      <div class="video-grid">
-        <video controls><source src="video1.mp4" /></video>
-        <video controls><source src="video2.mp4" /></video>
-      </div>
-
-      <a
-        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-        class="secondary-btn"
-        >Support Our Lomdim</a
-      >
-    </div>
-  </section>
-
   <!-- ABOUT THE PROGRAM -->
   <section class="section" style="padding-top:40px; padding-bottom:40px;">
-    <div class="inner" style="max-width: 920px; text-align:center;">
+    <div class="about-section">
       <h2 class="section-title">About the Program</h2>
-      <div class="section-subtitle">
+      <p>
         Every night throughout Bein Hazmanim we have over 60 Avreichim who come
         learn.
-      </div>
-      <div class="section-subtitle">
+      </p>
+      <p>
         Our Mission: We keep learning going throughout our off time, and help
         the kollel avreichim in our community before Pesach by giving them a
         check.
-      </div>
+      </p>
     </div>
   </section>
 
@@ -556,7 +462,7 @@
     </p>
     <a
       href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-      class="zechut-btn"
+      class="btn"
       >Become a Partner</a
     >
 
@@ -584,6 +490,29 @@
         <div class="tier-price">$1,000</div>
         <div class="tier-desc">Sponsor a Night of Learning</div>
       </div>
+    </div>
+  </section>
+
+  <!-- GLIMPSE INTO NIGHT KOLLEL -->
+  <section class="section" style="padding-top:40px; padding-bottom:40px;">
+    <div class="inner">
+      <h2 class="section-title">A Glimpse into the Night Kollel</h2>
+
+      <div class="photo-grid">
+        <img src="IMG_4798.jpg" alt="Photo 1" />
+        <img src="IMG_4818.jpg" alt="Photo 2" />
+      </div>
+
+      <div class="video-grid">
+        <video controls><source src="video1.mp4" /></video>
+        <video controls><source src="video2.mp4" /></video>
+      </div>
+
+      <a
+        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
+        class="btn"
+        >Support Our Lomdim</a
+      >
     </div>
   </section>
 
