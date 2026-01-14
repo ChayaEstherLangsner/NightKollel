@@ -58,30 +58,41 @@
   }
 
   /* ---------- BUTTONS ---------- */
-  .primary-btn {
-    margin-top: -26px;
+  .btn {
     padding: 16px 54px;
-    background: linear-gradient(135deg, #ffffff, #f1f5f9);
-    color: #0f172a;
-    text-decoration: none;
     font-weight: 800;
     border-radius: 999px;
     letter-spacing: 1.8px;
-
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    user-select: none;
     box-shadow:
       0 20px 50px rgba(0, 0, 0, 0.45),
       0 0 0 6px rgba(255, 255, 255, 0.08),
       inset 0 0 0 1px rgba(15, 23, 42, 0.12);
-    border: 2px solid white;
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #0f172a;
+    background: linear-gradient(135deg, #ffffff, #f1f5f9);
   }
 
-  .primary-btn:hover {
+  .btn:hover {
     transform: translateY(-4px);
     box-shadow:
       0 30px 70px rgba(0, 0, 0, 0.6),
       0 0 0 10px rgba(255, 255, 255, 0.12);
+  }
+
+  /* Primary button with white border */
+  .primary-btn {
+    border: 2px solid white;
+    margin-top: -26px;
+  }
+
+  /* Secondary button (under photos/videos) - same style but no white border */
+  .secondary-btn {
+    margin-top: 34px;
   }
 
   /* ---------- TITLES ---------- */
@@ -149,7 +160,7 @@
   .zechut-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px 40px;
+    gap: 30px 40px;
     justify-items: center;
   }
 
@@ -157,23 +168,28 @@
     background: #f0f4ff;
     border-radius: 18px;
     box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
-    width: 240px;
-    height: 140px;
+    width: 260px;
+    height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-weight: 700;
+    font-size: 1.6rem;
     color: #1e293b;
     cursor: default;
     user-select: none;
+    transition: transform 0.2s ease;
+  }
+
+  .zechut-box:hover {
+    transform: scale(1.05);
   }
 
   .zechut-box span {
     margin-top: 12px;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #475569;
   }
 
@@ -291,8 +307,6 @@
   .plaques-arrow.right {
     right: 0;
   }
-
-  /* Remove any .plaques-container:hover rules to keep arrows visible always */
 
   .plaques-container::before,
   .plaques-container::after {
@@ -428,7 +442,7 @@
 
     .zechut-box {
       width: 90%;
-      height: 120px;
+      height: 140px;
     }
   }
 </style>
@@ -444,7 +458,7 @@
     </div>
     <a
       href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-      class="primary-btn"
+      class="btn primary-btn"
       >Become A Partner</a
     >
   </div>
@@ -501,7 +515,15 @@
       <img src="IMG_4818.jpg" alt="Photo 2" />
     </div>
 
-    <div class="video-grid">
+    <div>
+      <a
+        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
+        class="btn secondary-btn"
+        >Support Our Lomdim</a
+      >
+    </div>
+
+    <div class="video-grid" style="margin-top: 30px;">
       <video controls><source src="video1.mp4" /></video>
       <video controls><source src="video2.mp4" /></video>
     </div>
