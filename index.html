@@ -77,6 +77,11 @@
     box-shadow: 0 28px 65px rgba(2, 6, 23, 0.75);
   }
 
+  /* First button white border override */
+  .header a.btn {
+    border: 2px solid white;
+  }
+
   /* ---------- TITLES ---------- */
   .section-title {
     font-size: 2.1rem;
@@ -115,10 +120,19 @@
     line-height: 1.5;
   }
 
-  /* ---------- GET A ZECHUT SECTION ---------- */
+  /* Smaller subtitle style for Our Mission */
+  .about-subtitle {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #475569;
+    margin-top: -20px;
+    margin-bottom: 48px;
+  }
+
+  /* ---------- GET A ZECHUT ---------- */
   .zechut-section {
     background: #fff;
-    padding: 70px 20px 40px;
+    padding: 70px 20px 50px;
     max-width: 900px;
     margin: 0 auto 80px;
     border-radius: 18px;
@@ -129,38 +143,32 @@
   .zechut-title {
     font-size: 2.4rem;
     font-weight: 800;
-    margin-bottom: 8px;
+    margin-bottom: 40px;
     color: #1e293b;
   }
 
-  .zechut-subtitle {
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #475569;
-    margin-bottom: 30px;
-    max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.4;
-  }
+  /* Removed subtitle under GET A ZECHUT per your request */
 
   /* ---------- DONATION TIERS ---------- */
   .tier-grid {
     margin-top: 10px;
     display: grid;
-    gap: 28px 50px;
+    gap: 20px 30px;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
   }
 
   .tier-card {
-    background: #fff;
-    padding: 28px 24px;
+    background: #f9fafb;
+    padding: 40px 30px;
     border-radius: 18px;
     box-shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
-    width: 220px;
+    width: 280px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: default;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .tier-card:hover {
@@ -168,23 +176,18 @@
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
   }
 
-  .tier-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #1e293b;
-  }
+  /* Removed top caption, so no h3 */
 
   .tier-price {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: #111827;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .tier-desc {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.15rem;
+    font-weight: 600;
     color: #475569;
   }
 
@@ -442,14 +445,11 @@
   <section class="section" style="padding-top:40px; padding-bottom:40px;">
     <div class="about-section">
       <h2 class="section-title">About the Program</h2>
-      <p>
-        Every night throughout Bein Hazmanim we have over 60 Avreichim who come
-        learn.
+      <p class="about-subtitle">
+        Our Mission: We keep learning going throughout our off time, and help the kollel avreichim in our community before Pesach by giving them a check.
       </p>
       <p>
-        Our Mission: We keep learning going throughout our off time, and help
-        the kollel avreichim in our community before Pesach by giving them a
-        check.
+        Every night throughout Bein Hazmanim we have over 60 Avreichim who come learn.
       </p>
     </div>
   </section>
@@ -457,38 +457,26 @@
   <!-- GET A ZECHUT -->
   <section class="zechut-section">
     <h2 class="zechut-title">GET A ZECHUT</h2>
-    <p class="zechut-subtitle">
-      Support the Night Kollel and keep Torah thriving throughout Bein Hazmanim
-    </p>
-    <a
-      href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-      class="btn"
-      >Become a Partner</a
-    >
 
     <div class="tier-grid">
       <div class="tier-card">
-        <h3>Torah Partner</h3>
         <div class="tier-price">$101</div>
         <div class="tier-desc">One Hour of Learning</div>
       </div>
 
       <div class="tier-card">
-        <h3>One Hour of Learning</h3>
         <div class="tier-price">$252</div>
-        <div class="tier-desc">Sponsor Torah Time</div>
+        <div class="tier-desc">One Avreich</div>
       </div>
 
       <div class="tier-card">
-        <h3>One Avreich</h3>
         <div class="tier-price">$501</div>
-        <div class="tier-desc">Support One Avreich</div>
+        <div class="tier-desc">One Avreich</div>
       </div>
 
       <div class="tier-card">
-        <h3>One Night of Learning</h3>
         <div class="tier-price">$1,000</div>
-        <div class="tier-desc">Sponsor a Night of Learning</div>
+        <div class="tier-desc">One Night of Learning</div>
       </div>
     </div>
   </section>
@@ -569,65 +557,59 @@
     const wrapper = document.getElementById("plaquesWrapper");
     const track = document.getElementById("plaquesTrack");
 
-    let scrollTimeout;
+    let scrollTimeout
+   const wrapper = document.getElementById("plaquesWrapper");
+const track = document.getElementById("plaquesTrack");
 
-    function pauseAnimation() {
-      track.style.animationPlayState = "paused";
-    }
+let scrollTimeout;
 
-    function resumeAnimation() {
-      track.style.animationPlayState = "running";
-    }
+function pauseAnimation() {
+  track.style.animationPlayState = "paused";
+}
 
-    function scrollPlaques(dir) {
-      pauseAnimation();
+function resumeAnimation() {
+  track.style.animationPlayState = "running";
+}
 
-      wrapper.scrollBy({
-        left: dir * 420,
-        behavior: "smooth",
-      });
+function scrollPlaques(dir) {
+  pauseAnimation();
 
-      if (scrollTimeout) clearTimeout(scrollTimeout);
+  wrapper.scrollBy({
+    left: dir * 420,
+    behavior: "smooth",
+  });
 
-      // Resume animation 2s after scrolling stops
-      scrollTimeout = setTimeout(() => {
-        resumeAnimation();
-      }, 2000);
-    }
+  if (scrollTimeout) clearTimeout(scrollTimeout);
 
-    wrapper.addEventListener("scroll", () => {
-      pauseAnimation();
+  scrollTimeout = setTimeout(() => {
+    resumeAnimation();
+  }, 2000);
+}
 
-      if (scrollTimeout) clearTimeout(scrollTimeout);
+wrapper.addEventListener("scroll", () => {
+  pauseAnimation();
 
-      scrollTimeout = setTimeout(() => {
-        resumeAnimation();
-      }, 2000);
-    });
+  if (scrollTimeout) clearTimeout(scrollTimeout);
 
-    wrapper.addEventListener("mouseenter", pauseAnimation);
+  scrollTimeout = setTimeout(() => {
+    resumeAnimation();
+  }, 2000);
+});
 
-    wrapper.addEventListener("mouseleave", () => {
-      // Immediately resume animation on mouse leave
-      if (scrollTimeout) clearTimeout(scrollTimeout);
-      resumeAnimation();
-    });
+wrapper.addEventListener("mouseenter", pauseAnimation);
 
-    function openPlaque(src) {
-      const modal = document.getElementById("plaqueModal");
-      const img = document.getElementById("plaqueModalImg");
-      img.src = src;
-      modal.classList.add("active");
-    }
+wrapper.addEventListener("mouseleave", () => {
+  if (scrollTimeout) clearTimeout(scrollTimeout);
+  resumeAnimation();
+});
 
-    function closePlaque() {
-      document.getElementById("plaqueModal").classList.remove("active");
-    }
-  </script>
+function openPlaque(src) {
+  const modal = document.getElementById("plaqueModal");
+  const img = document.getElementById("plaqueModalImg");
+  img.src = src;
+  modal.classList.add("active");
+}
 
-  <!-- PLAQUE MODAL -->
-  <div id="plaqueModal" class="plaque-modal" onclick="closePlaque()">
-    <img id="plaqueModalImg" src="" alt="Plaque" />
-  </div>
-</body>
-</html>
+function closePlaque() {
+  document.getElementById("plaqueModal").classList.remove("active");
+}
