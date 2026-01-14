@@ -6,276 +6,52 @@
 <title>Night Kollel - Bein Hazmanim</title>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  /* ... other styles remain unchanged ... */
 
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f4f6fb;
-    color: #1e293b;
-    line-height: 1.6;
-  }
-
-  /* ---------- GLOBAL ---------- */
-  .section {
-    padding: 70px 20px;
-    background: linear-gradient(#f4f6fb, #eef2ff);
-  }
-
-  .inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  /* ---------- HERO ---------- */
-  .header {
-    background: linear-gradient(
-        rgba(15, 23, 42, 0.65),
-        rgba(15, 23, 42, 0.65)
-      ),
-      url("hero.jpg");
-    background-size: cover;
-    background-position: center;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .header-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo-container img {
-    max-width: 580px;
-    width: 100%;
-  }
-
-  /* ---------- BUTTONS ---------- */
-  a.btn {
-    display: inline-block;
-    padding: 16px 54px;
-    background: linear-gradient(135deg, #020617, #1e293b);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 800;
-    border-radius: 999px;
-    letter-spacing: 1.8px;
-    box-shadow: 0 18px 50px rgba(2, 6, 23, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    user-select: none;
-  }
-  a.btn:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 28px 65px rgba(2, 6, 23, 0.75);
-  }
-
-  /* First button white border override */
-  .header a.btn {
-    border: 2px solid white;
-  }
-
-  /* ---------- TITLES ---------- */
+  /* Section Titles and lines */
   .section-title {
     font-size: 2.1rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: #1e293b;
   }
 
   .section-subtitle {
-    font-size: 1rem;
-    color: #475569;
-    margin-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 8px;
+    color: #1e293b;
   }
 
-  .section-title::after {
-    content: "";
+  /* Thin line below titles */
+  .section-line {
     width: 120px;
-    height: 4px;
+    height: 2px;
     background: linear-gradient(90deg, #020617, #1e293b, #020617);
-    display: block;
-    margin: 16px auto 0;
-    border-radius: 2px;
+    margin: 0 auto 24px;
+    border-radius: 1px;
   }
 
-  /* ---------- ABOUT THE PROGRAM ---------- */
-  .about-section {
-    max-width: 920px;
-    margin: 0 auto 60px;
-    text-align: center;
-  }
-  .about-section p {
+  .about-text {
     font-weight: 600;
     color: #1e293b;
-    margin-bottom: 1.25rem;
     font-size: 1.1rem;
-    line-height: 1.5;
+    max-width: 720px;
+    margin: 0 auto 20px;
+    text-align: center;
   }
 
-  /* Smaller subtitle style for Our Mission */
-  .about-subtitle {
+  .mission-text {
     font-weight: 400;
+    color: #475569;
     font-size: 1rem;
-    color: #475569;
-    margin-top: -20px;
-    margin-bottom: 48px;
-  }
-
-  /* ---------- GET A ZECHUT ---------- */
-  .zechut-section {
-    background: #fff;
-    padding: 70px 20px 50px;
-    max-width: 900px;
-    margin: 0 auto 80px;
-    border-radius: 18px;
-    box-shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+    max-width: 720px;
+    margin: 0 auto 50px;
     text-align: center;
   }
 
-  .zechut-title {
-    font-size: 2.4rem;
-    font-weight: 800;
-    margin-bottom: 40px;
-    color: #1e293b;
-  }
-
-  /* Removed subtitle under GET A ZECHUT per your request */
-
-  /* ---------- DONATION TIERS ---------- */
-  .tier-grid {
-    margin-top: 10px;
-    display: grid;
-    gap: 20px 30px;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-  }
-
-  .tier-card {
-    background: #f9fafb;
-    padding: 40px 30px;
-    border-radius: 18px;
-    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
-    width: 280px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .tier-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
-  }
-
-  /* Removed top caption, so no h3 */
-
-  .tier-price {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: #111827;
-    margin-bottom: 12px;
-  }
-
-  .tier-desc {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: #475569;
-  }
-
-  /* ---------- MEDIA ---------- */
-  .photo-grid,
-  .video-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 30px;
-  }
-
-  .photo-grid img,
-  video {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 18px;
-    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
-  }
-
-  video {
-    background: #000;
-  }
-
-  /* ---------- PLAQUES ---------- */
-  .plaques-section {
-    background: #fff;
-    padding: 70px 0;
-  }
-
-  .plaques-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 40px;
-    color: #1e293b;
-  }
-
-  .plaques-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 80px; /* space for arrows */
-    padding-right: 80px; /* space for arrows */
-  }
-
-  .plaques-wrapper {
-    overflow-x: auto;
-    scroll-behavior: smooth;
-  }
-
-  .plaques-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .plaques-wrapper {
-    scroll-snap-type: x mandatory;
-  }
-
-  .plaque {
-    scroll-snap-align: center;
-    position: relative;
-  }
-
-  .plaques-track {
-    display: flex;
-    gap: 150px;
-    width: max-content;
-    animation: scrollPlaques 25s linear infinite;
-  }
-
-  .plaques-track:hover {
-    animation-play-state: paused;
-  }
-
-  .plaque img {
-    height: 480px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-  }
-
-  .plaque:hover img {
-    transform: scale(1.15);
-  }
-
-  /* arrows */
+  /* PLAQUES ARROWS - always visible */
   .plaques-arrow {
     position: absolute;
     top: 50%;
@@ -289,9 +65,9 @@
     font-size: 26px;
     cursor: pointer;
     z-index: 5;
-    transition: transform 0.25s ease, background 0.25s ease, opacity 0.3s ease;
-    opacity: 0;
-    pointer-events: none;
+    transition: transform 0.25s ease, background 0.25s ease;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 
   .plaques-arrow:hover {
@@ -307,202 +83,33 @@
     right: 0;
   }
 
-  /* Show arrows when container or arrow hovered */
-  .plaques-container:hover .plaques-arrow,
-  .plaques-arrow:hover {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  /* Removed any opacity or pointer-events toggling on .plaques-container:hover or .plaques-arrow:hover */
+  /* So the arrows remain always visible */
 
-  .plaques-container::before,
-  .plaques-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 90px;
-    height: 100%;
-    z-index: 4;
-  }
-
-  .plaques-container::before {
-    left: 0;
-  }
-
-  .plaques-container::after {
-    right: 0;
-  }
-
-  /* ---------- PLAQUE MODAL ---------- */
-  .plaque-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(2, 6, 23, 0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 9999;
-  }
-
-  .plaque-modal img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 14px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-    animation: zoomIn 0.3s ease;
-  }
-
-  .plaque-modal.active {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-
-  @keyframes scrollPlaques {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* ---------- MOBILE ---------- */
-  @media (max-width: 900px) {
-    .photo-grid,
-    .video-grid {
-      grid-template-columns: 1fr;
-    }
-    .plaques-arrow.left {
-      left: 10px;
-    }
-    .plaques-arrow.right {
-      right: 10px;
-    }
-    .tier-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .logo-container img {
-      max-width: 360px;
-    }
-    .plaque img {
-      height: 240px;
-    }
-  }
-
-  /* ---------- MOBILE IMPROVEMENTS ---------- */
-  @media (max-width: 768px) {
-    /* stop auto scroll on mobile */
-    .plaques-track {
-      animation: none;
-    }
-
-    /* subtle tap feedback */
-    .plaque img:active {
-      transform: scale(1.05);
-    }
-
-    /* reduce spacing so only 1–2 plaques show */
-    .plaques-track {
-      gap: 60px;
-    }
-  }
 </style>
 </head>
 
 <body>
-  <!-- HERO -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo-container">
-        <img src="night seder logo.png" alt="Night Kollel Logo" />
-      </div>
-      <a
-        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-        class="btn"
-        >Become A Partner</a
-      >
-    </div>
-  </header>
+  <!-- ... other sections unchanged ... -->
 
-  <!-- ABOUT THE PROGRAM -->
-  <section class="section" style="padding-top:40px; padding-bottom:40px;">
-    <div class="about-section">
-      <h2 class="section-title">About the Program</h2>
-      <p class="about-subtitle">
-        Our Mission: We keep learning going throughout our off time, and help the kollel avreichim in our community before Pesach by giving them a check.
-      </p>
-      <p>
-        Every night throughout Bein Hazmanim we have over 60 Avreichim who come learn.
-      </p>
-    </div>
-  </section>
-
-  <!-- GET A ZECHUT -->
-  <section class="zechut-section">
-    <h2 class="zechut-title">GET A ZECHUT</h2>
-
-    <div class="tier-grid">
-      <div class="tier-card">
-        <div class="tier-price">$101</div>
-        <div class="tier-desc">One Hour of Learning</div>
-      </div>
-
-      <div class="tier-card">
-        <div class="tier-price">$252</div>
-        <div class="tier-desc">One Avreich</div>
-      </div>
-
-      <div class="tier-card">
-        <div class="tier-price">$501</div>
-        <div class="tier-desc">One Avreich</div>
-      </div>
-
-      <div class="tier-card">
-        <div class="tier-price">$1,000</div>
-        <div class="tier-desc">One Night of Learning</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GLIMPSE INTO NIGHT KOLLEL -->
+  <!-- ABOUT THE PROGRAM & OUR MISSION -->
   <section class="section" style="padding-top:40px; padding-bottom:40px;">
     <div class="inner">
-      <h2 class="section-title">A Glimpse into the Night Kollel</h2>
+      <h2 class="section-title">About the Program</h2>
+      <div class="section-line"></div>
+      <p class="about-text">
+        Every night throughout Bein Hazmanim we have over 60 Avreichim who come learn.
+      </p>
 
-      <div class="photo-grid">
-        <img src="IMG_4798.jpg" alt="Photo 1" />
-        <img src="IMG_4818.jpg" alt="Photo 2" />
-      </div>
-
-      <div class="video-grid">
-        <video controls><source src="video1.mp4" /></video>
-        <video controls><source src="video2.mp4" /></video>
-      </div>
-
-      <a
-        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-        class="btn"
-        >Support Our Lomdim</a
-      >
+      <h3 class="section-subtitle">Our Mission</h3>
+      <div class="section-line"></div>
+      <p class="mission-text">
+        We keep learning going throughout our off time, and help the kollel avreichim in our community before Pesach by giving them a check.
+      </p>
     </div>
   </section>
+
+  <!-- ... rest of your content like Get a Zechut, media, plaques etc ... -->
 
   <!-- PLAQUES -->
   <section class="plaques-section">
@@ -516,38 +123,11 @@
 
       <div class="plaques-wrapper" id="plaquesWrapper">
         <div class="plaques-track" id="plaquesTrack">
+          <!-- plaques here -->
           <a class="plaque" onclick="openPlaque('ns2022.jpg')">
             <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
           </a>
-          <a class="plaque" onclick="openPlaque('ns2023.jpg')">
-            <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns2024.jpg')">
-            <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
-          </a>
-          <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
-            <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns.jpg')">
-            <img src="ns.jpg" alt="Supporter Plaque" />
-          </a>
-
-          <!-- duplicate for seamless loop -->
-          <a class="plaque" onclick="openPlaque('ns2022.jpg')">
-            <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns2023.jpg')">
-            <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns2024.jpg')">
-            <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
-          </a>
-          <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
-            <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns.jpg')">
-            <img src="ns.jpg" alt="Supporter Plaque" />
-          </a>
+          <!-- rest of plaques ... -->
         </div>
       </div>
     </div>
@@ -557,59 +137,63 @@
     const wrapper = document.getElementById("plaquesWrapper");
     const track = document.getElementById("plaquesTrack");
 
-    let scrollTimeout
-   const wrapper = document.getElementById("plaquesWrapper");
-const track = document.getElementById("plaquesTrack");
+    let scrollTimeout;
 
-let scrollTimeout;
+    function pauseAnimation() {
+      track.style.animationPlayState = "paused";
+    }
 
-function pauseAnimation() {
-  track.style.animationPlayState = "paused";
-}
+    function resumeAnimation() {
+      track.style.animationPlayState = "running";
+    }
 
-function resumeAnimation() {
-  track.style.animationPlayState = "running";
-}
+    function scrollPlaques(dir) {
+      pauseAnimation();
 
-function scrollPlaques(dir) {
-  pauseAnimation();
+      wrapper.scrollBy({
+        left: dir * 420,
+        behavior: "smooth",
+      });
 
-  wrapper.scrollBy({
-    left: dir * 420,
-    behavior: "smooth",
-  });
+      if (scrollTimeout) clearTimeout(scrollTimeout);
 
-  if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        resumeAnimation();
+      }, 2000);
+    }
 
-  scrollTimeout = setTimeout(() => {
-    resumeAnimation();
-  }, 2000);
-}
+    wrapper.addEventListener("scroll", () => {
+      pauseAnimation();
 
-wrapper.addEventListener("scroll", () => {
-  pauseAnimation();
+      if (scrollTimeout) clearTimeout(scrollTimeout);
 
-  if (scrollTimeout) clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        resumeAnimation();
+      }, 2000);
+    });
 
-  scrollTimeout = setTimeout(() => {
-    resumeAnimation();
-  }, 2000);
-});
+    wrapper.addEventListener("mouseenter", pauseAnimation);
 
-wrapper.addEventListener("mouseenter", pauseAnimation);
+    wrapper.addEventListener("mouseleave", () => {
+      if (scrollTimeout) clearTimeout(scrollTimeout);
+      resumeAnimation();
+    });
 
-wrapper.addEventListener("mouseleave", () => {
-  if (scrollTimeout) clearTimeout(scrollTimeout);
-  resumeAnimation();
-});
+    function openPlaque(src) {
+      const modal = document.getElementById("plaqueModal");
+      const img = document.getElementById("plaqueModalImg");
+      img.src = src;
+      modal.classList.add("active");
+    }
 
-function openPlaque(src) {
-  const modal = document.getElementById("plaqueModal");
-  const img = document.getElementById("plaqueModalImg");
-  img.src = src;
-  modal.classList.add("active");
-}
+    function closePlaque() {
+      document.getElementById("plaqueModal").classList.remove("active");
+    }
+  </script>
 
-function closePlaque() {
-  document.getElementById("plaqueModal").classList.remove("active");
-}
+  <!-- PLAQUE MODAL -->
+  <div id="plaqueModal" class="plaque-modal" onclick="closePlaque()">
+    <img id="plaqueModalImg" src="" alt="Plaque" />
+  </div>
+</body>
+</html>
