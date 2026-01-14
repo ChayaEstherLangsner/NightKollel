@@ -3,12 +3,88 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Night Kollel - Bein Hazmanim</title>
+<title>Night Kollel</title>
 
 <style>
-  /* ... other styles remain unchanged ... */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  /* Section Titles and lines */
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f4f6fb;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  /* ---------- GLOBAL ---------- */
+  .section {
+    padding: 70px 20px;
+    background: linear-gradient(#f4f6fb, #eef2ff);
+  }
+
+  .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ---------- HERO ---------- */
+  .header {
+    background: linear-gradient(
+        rgba(15, 23, 42, 0.65),
+        rgba(15, 23, 42, 0.65)
+      ),
+      url("hero.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo-container img {
+    max-width: 580px;
+    width: 100%;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .primary-btn {
+    margin-top: -26px;
+    padding: 16px 54px;
+    background: linear-gradient(135deg, #ffffff, #f1f5f9);
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 999px;
+    letter-spacing: 1.8px;
+
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.45),
+      0 0 0 6px rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(15, 23, 42, 0.12);
+    border: 2px solid white;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .primary-btn:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.6),
+      0 0 0 10px rgba(255, 255, 255, 0.12);
+  }
+
+  /* ---------- TITLES ---------- */
   .section-title {
     font-size: 2.1rem;
     font-weight: 600;
@@ -51,7 +127,140 @@
     text-align: center;
   }
 
-  /* PLAQUES ARROWS - always visible */
+  /* ---------- SPONSORSHIP BOXES ---------- */
+  .zechut-section {
+    background: #fff;
+    padding: 50px 20px 70px;
+  }
+
+  .zechut-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .zechut-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 40px;
+  }
+
+  .zechut-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 40px;
+    justify-items: center;
+  }
+
+  .zechut-box {
+    background: #f0f4ff;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+    width: 240px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #1e293b;
+    cursor: default;
+    user-select: none;
+  }
+
+  .zechut-box span {
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 1rem;
+    color: #475569;
+  }
+
+  /* ---------- MEDIA ---------- */
+  .photo-grid,
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+
+  .photo-grid img,
+  video {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 14px 35px rgba(15, 23, 42, 0.18);
+  }
+
+  video {
+    background: #000;
+  }
+
+  /* ---------- PLAQUES ---------- */
+  .plaques-section {
+    background: #fff;
+    padding: 70px 0;
+  }
+
+  .plaques-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #1e293b;
+  }
+
+  .plaques-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 80px; /* space for arrows */
+    padding-right: 80px; /* space for arrows */
+  }
+
+  .plaques-wrapper {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .plaques-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .plaques-wrapper {
+    scroll-snap-type: x mandatory;
+  }
+
+  .plaque {
+    scroll-snap-align: center;
+    position: relative;
+  }
+
+  .plaques-track {
+    display: flex;
+    gap: 150px;
+    width: max-content;
+    animation: scrollPlaques 25s linear infinite;
+  }
+
+  .plaques-track:hover {
+    animation-play-state: paused;
+  }
+
+  .plaque img {
+    height: 480px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    transition: transform 0.3s ease;
+  }
+
+  .plaque:hover img {
+    transform: scale(1.15);
+  }
+
+  /* arrows - always visible */
   .plaques-arrow {
     position: absolute;
     top: 50%;
@@ -83,117 +292,333 @@
     right: 0;
   }
 
-  /* Removed any opacity or pointer-events toggling on .plaques-container:hover or .plaques-arrow:hover */
-  /* So the arrows remain always visible */
+  /* Remove any .plaques-container:hover rules to keep arrows visible always */
 
+  .plaques-container::before,
+  .plaques-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 90px;
+    height: 100%;
+    z-index: 4;
+  }
+
+  .plaques-container::before {
+    left: 0;
+  }
+
+  .plaques-container::after {
+    right: 0;
+  }
+
+  /* ---------- PLAQUE MODAL ---------- */
+  .plaque-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+  }
+
+  .plaque-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 14px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    animation: zoomIn 0.3s ease;
+  }
+
+  .plaque-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes softPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.08);
+    }
+    50% {
+      box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.18);
+    }
+  }
+
+  .primary-btn {
+    animation: softPulse 3.5s ease-in-out infinite;
+  }
+
+  .plaque::after {
+    content: "Tap to view";
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.75);
+    color: #fff;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .plaque:hover::after {
+    opacity: 1;
+  }
+
+  @media (max-width: 900px) {
+    .photo-grid,
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
+    .plaques-arrow.left {
+      left: 10px;
+    }
+    .plaques-arrow.right {
+      right: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-container img {
+      max-width: 360px;
+    }
+    .plaque img {
+      height: 240px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* stop auto scroll on mobile */
+    .plaques-track {
+      animation: none;
+    }
+
+    /* subtle tap feedback */
+    .plaque img:active {
+      transform: scale(1.05);
+    }
+
+    /* reduce spacing so only 1–2 plaques show */
+    .plaques-track {
+      gap: 60px;
+    }
+
+    /* Sponsorship grid: 1 column on mobile */
+    .zechut-grid {
+      grid-template-columns: 1fr;
+      gap: 20px 0;
+    }
+
+    .zechut-box {
+      width: 90%;
+      height: 120px;
+    }
+  }
 </style>
 </head>
 
 <body>
-  <!-- ... other sections unchanged ... -->
 
-  <!-- ABOUT THE PROGRAM & OUR MISSION -->
-  <section class="section" style="padding-top:40px; padding-bottom:40px;">
-    <div class="inner">
-      <h2 class="section-title">About the Program</h2>
-      <div class="section-line"></div>
-      <p class="about-text">
-        Every night throughout Bein Hazmanim we have over 60 Avreichim who come learn.
-      </p>
-
-      <h3 class="section-subtitle">Our Mission</h3>
-      <div class="section-line"></div>
-      <p class="mission-text">
-        We keep learning going throughout our off time, and help the kollel avreichim in our community before Pesach by giving them a check.
-      </p>
+<!-- HERO -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-container">
+      <img src="night seder logo.png" alt="Night Kollel Logo" />
     </div>
-  </section>
+    <a
+      href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
+      class="primary-btn"
+      >Become A Partner</a
+    >
+  </div>
+</header>
 
-  <!-- ... rest of your content like Get a Zechut, media, plaques etc ... -->
+<!-- ABOUT THE PROGRAM & OUR MISSION -->
+<section class="section" style="padding-top:40px; padding-bottom:40px;">
+  <div class="inner">
+    <h2 class="section-title">About the Program</h2>
+    <div class="section-line"></div>
+    <p class="about-text">
+      Every night throughout Bein Hazmanim we have over 60 Avreichim who come
+      learn.
+    </p>
 
-  <!-- PLAQUES -->
-  <section class="plaques-section">
-    <h2 class="plaques-title">
-      With Gratitude to the Sponsors Who Made the Program Happen Over the Years
-    </h2>
+    <h3 class="section-subtitle">Our Mission</h3>
+    <div class="section-line"></div>
+    <p class="mission-text">
+      We keep learning going throughout our off time, and help the kollel
+      avreichim in our community before Pesach by giving them a check.
+    </p>
+  </div>
+</section>
 
-    <div class="plaques-container">
-      <button class="plaques-arrow left" onclick="scrollPlaques(-1)">‹</button>
-      <button class="plaques-arrow right" onclick="scrollPlaques(1)">›</button>
+<!-- SPONSORSHIP BOXES - GET A ZECHUT -->
+<section class="zechut-section">
+  <div class="zechut-inner">
+    <h2 class="zechut-title">GET A ZECHUT</h2>
 
-      <div class="plaques-wrapper" id="plaquesWrapper">
-        <div class="plaques-track" id="plaquesTrack">
-          <!-- plaques here -->
-          <a class="plaque" onclick="openPlaque('ns2022.jpg')">
-            <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
-          </a>
-          <!-- rest of plaques ... -->
-        </div>
+    <div class="zechut-grid">
+      <div class="zechut-box">
+        $101<span>one hour of learning</span>
+      </div>
+      <div class="zechut-box">
+        $252<span>one Avreich</span>
+      </div>
+      <div class="zechut-box">
+        $501<span>one night of learning</span>
+      </div>
+      <div class="zechut-box">
+        $1,000<span>Torah partner</span>
       </div>
     </div>
-  </section>
-
-  <script>
-    const wrapper = document.getElementById("plaquesWrapper");
-    const track = document.getElementById("plaquesTrack");
-
-    let scrollTimeout;
-
-    function pauseAnimation() {
-      track.style.animationPlayState = "paused";
-    }
-
-    function resumeAnimation() {
-      track.style.animationPlayState = "running";
-    }
-
-    function scrollPlaques(dir) {
-      pauseAnimation();
-
-      wrapper.scrollBy({
-        left: dir * 420,
-        behavior: "smooth",
-      });
-
-      if (scrollTimeout) clearTimeout(scrollTimeout);
-
-      scrollTimeout = setTimeout(() => {
-        resumeAnimation();
-      }, 2000);
-    }
-
-    wrapper.addEventListener("scroll", () => {
-      pauseAnimation();
-
-      if (scrollTimeout) clearTimeout(scrollTimeout);
-
-      scrollTimeout = setTimeout(() => {
-        resumeAnimation();
-      }, 2000);
-    });
-
-    wrapper.addEventListener("mouseenter", pauseAnimation);
-
-    wrapper.addEventListener("mouseleave", () => {
-      if (scrollTimeout) clearTimeout(scrollTimeout);
-      resumeAnimation();
-    });
-
-    function openPlaque(src) {
-      const modal = document.getElementById("plaqueModal");
-      const img = document.getElementById("plaqueModalImg");
-      img.src = src;
-      modal.classList.add("active");
-    }
-
-    function closePlaque() {
-      document.getElementById("plaqueModal").classList.remove("active");
-    }
-  </script>
-
-  <!-- PLAQUE MODAL -->
-  <div id="plaqueModal" class="plaque-modal" onclick="closePlaque()">
-    <img id="plaqueModalImg" src="" alt="Plaque" />
   </div>
+</section>
+
+<!-- MEDIA -->
+<section class="section">
+  <div class="inner">
+    <h2 class="section-title">A Glimpse into the Night Kollel</h2>
+
+    <div class="photo-grid">
+      <img src="IMG_4798.jpg" alt="Photo 1" />
+      <img src="IMG_4818.jpg" alt="Photo 2" />
+    </div>
+
+    <div class="video-grid">
+      <video controls><source src="video1.mp4" /></video>
+      <video controls><source src="video2.mp4" /></video>
+    </div>
+  </div>
+</section>
+
+<!-- PLAQUES -->
+<section class="plaques-section">
+  <h2 class="plaques-title">
+    With Gratitude to the Sponsors Who Made the Program Happen Over the Years
+  </h2>
+
+  <div class="plaques-container">
+    <button class="plaques-arrow left" onclick="scrollPlaques(-1)">‹</button>
+    <button class="plaques-arrow right" onclick="scrollPlaques(1)">›</button>
+
+    <div class="plaques-wrapper" id="plaquesWrapper">
+      <div class="plaques-track" id="plaquesTrack">
+        <a class="plaque" onclick="openPlaque('ns2022.jpg')">
+          <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
+        </a>
+        <a class="plaque" onclick="openPlaque('ns2023.jpg')">
+          <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
+        </a>
+        <a class="plaque" onclick="openPlaque('ns2024.jpg')">
+          <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
+        </a>
+        <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
+          <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
+        </a>
+        <a class="plaque" onclick="openPlaque('ns.jpg')">
+          <img src="ns.jpg" alt="Supporter Plaque" />
+        </a>
+
+        <!-- duplicate for seamless loop -->
+        <a class="plaque" onclick="openPlaque('ns2022.jpg')">
+          <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
+        </a>
+        <a class="plaque" onclick="openPlaque('ns2023.jpg')">
+          <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
+        </a>
+        <a class="plaque" onclick="openPlaque('ns2024.jpg')">
+          <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
+        </a>
+        <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
+          <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
+        </a>
+        <a class="plaque" onclick="openPlaque('ns.jpg')">
+          <img src="ns.jpg" alt="Supporter Plaque" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const wrapper = document.getElementById("plaquesWrapper");
+  const track = document.getElementById("plaquesTrack");
+
+  let scrollTimeout;
+
+  function pauseAnimation() {
+    track.style.animationPlayState = "paused";
+  }
+
+  function resumeAnimation() {
+    track.style.animationPlayState = "running";
+  }
+
+  function scrollPlaques(dir) {
+    pauseAnimation();
+
+    wrapper.scrollBy({
+      left: dir * 420,
+      behavior: "smooth",
+    });
+
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+      resumeAnimation();
+    }, 2000);
+  }
+
+  wrapper.addEventListener("scroll", () => {
+    pauseAnimation();
+
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+      resumeAnimation();
+    }, 2000);
+  });
+
+  wrapper.addEventListener("mouseenter", pauseAnimation);
+
+  wrapper.addEventListener("mouseleave", () => {
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    resumeAnimation();
+  });
+
+  function openPlaque(src) {
+    const modal = document.getElementById("plaqueModal");
+    const img = document.getElementById("plaqueModalImg");
+    img.src = src;
+    modal.classList.add("active");
+  }
+
+  function closePlaque() {
+    document.getElementById("plaqueModal").classList.remove("active");
+  }
+</script>
+
+<!-- PLAQUE MODAL -->
+<div id="plaqueModal" class="plaque-modal" onclick="closePlaque()">
+  <img id="plaqueModalImg" src="" alt="Plaque" />
+</div>
+
 </body>
 </html>
