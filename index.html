@@ -290,8 +290,6 @@
     cursor: pointer;
     z-index: 5;
     transition: transform 0.25s ease, background 0.25s ease, opacity 0.3s ease;
-    opacity: 0;
-    pointer-events: none;
   }
 
   .plaques-arrow:hover {
@@ -305,13 +303,6 @@
 
   .plaques-arrow.right {
     right: 0;
-  }
-
-  /* Show arrows when container or arrow hovered */
-  .plaques-container:hover .plaques-arrow,
-  .plaques-arrow:hover {
-    opacity: 1;
-    pointer-events: auto;
   }
 
   .plaques-container::before,
