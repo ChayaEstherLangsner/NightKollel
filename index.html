@@ -545,12 +545,7 @@
     </div>
   </section>
 
-  <script>
-    const wrapper = document.getElementById("plaquesWrapper");
-    const track = document.getElementById("plaquesTrack");
-
-    let scrollTimeout
-
+<script>
 const wrapper = document.getElementById("plaquesWrapper");
 const track = document.getElementById("plaquesTrack");
 
@@ -566,31 +561,22 @@ function resumeAnimation() {
 
 function scrollPlaques(dir) {
   pauseAnimation();
-
   wrapper.scrollBy({
     left: dir * 420,
-    behavior: "smooth",
+    behavior: "smooth"
   });
 
   if (scrollTimeout) clearTimeout(scrollTimeout);
-
-  scrollTimeout = setTimeout(() => {
-    resumeAnimation();
-  }, 2000);
+  scrollTimeout = setTimeout(resumeAnimation, 2000);
 }
 
 wrapper.addEventListener("scroll", () => {
   pauseAnimation();
-
   if (scrollTimeout) clearTimeout(scrollTimeout);
-
-  scrollTimeout = setTimeout(() => {
-    resumeAnimation();
-  }, 2000);
+  scrollTimeout = setTimeout(resumeAnimation, 2000);
 });
 
 wrapper.addEventListener("mouseenter", pauseAnimation);
-
 wrapper.addEventListener("mouseleave", () => {
   if (scrollTimeout) clearTimeout(scrollTimeout);
   resumeAnimation();
@@ -606,3 +592,4 @@ function openPlaque(src) {
 function closePlaque() {
   document.getElementById("plaqueModal").classList.remove("active");
 }
+</script>
