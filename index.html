@@ -83,28 +83,32 @@
   }
 
   /* ---------- TITLES ---------- */
-  .section-title {
-    font-size: 2.1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #1e293b;
-  }
+.section-title {
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
 
-  .section-subtitle {
-    font-size: 1rem;
-    color: #475569;
-    margin-bottom: 30px;
-  }
+.section-subtitle {
+  font-size: 1.05rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 28px auto;
+  color: #475569;
+  line-height: 1.55;
+}
 
-  .section-title::after {
-    content: "";
-    width: 120px;
-    height: 4px;
-    background: linear-gradient(90deg, #020617, #1e293b, #020617);
-    display: block;
-    margin: 16px auto 0;
-    border-radius: 2px;
-  }
+.section-title::after {
+  content: "";
+  width: 140px;
+  height: 3px;
+  background: linear-gradient(90deg, #020617, #1e293b, #020617);
+  display: block;
+  margin: 14px auto 0;
+  border-radius: 2px;
+}}
 
   /* ---------- ABOUT THE PROGRAM ---------- */
   .about-section {
@@ -434,17 +438,22 @@
   </header>
 
   <!-- ABOUT THE PROGRAM -->
-  <section class="section" style="padding-top:40px; padding-bottom:40px;">
-    <div class="about-section">
-      <h2 class="section-title">About the Program</h2>
-      <p class="about-subtitle">
-        Our Mission: We keep learning going throughout our off time, and help the kollel avreichim in our community before Pesach by giving them a check.
-      </p>
-      <p>
-        Every night throughout Bein Hazmanim we have over 60 Avreichim who come learn.
-      </p>
-    </div>
-  </section>
+<section id="program" class="section">
+  <div class="container">
+    
+    <h2 class="section-title">About the Program</h2>
+    <p class="section-subtitle">
+      Every night over 60 talmidim fill the beis midrash in Philadelphia, devoting their Bein Hazmanim nights to Torah learning.
+    </p>
+
+    <h2 class="section-title">Our Mission</h2>
+    <p class="section-subtitle">
+      We keep the beis midrash vibrant and full during Bein Hazmanim, enabling motivated young Avreichim and bochurim to continue their limud Torah through the nights.
+    </p>
+
+    <div class="section-divider"></div>
+  </div>
+</section>
 
   <!-- GET A ZECHUT -->
   <section class="zechut-section">
