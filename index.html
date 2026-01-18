@@ -376,44 +376,57 @@
   }
 
   /* ---------- MOBILE ---------- */
-  @media (max-width: 900px) {
-    .photo-grid,
-    .video-grid {
-      grid-template-columns: 1fr;
-    }
-    .plaques-arrow.left {
-      left: 10px;
-    }
-    .plaques-arrow.right {
-      right: 10px;
-    }
-    .tier-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
+@media (max-width: 900px) {
+  .photo-grid,
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  .plaques-arrow.left {
+    left: 10px;
+  }
+  .plaques-arrow.right {
+    right: 10px;
   }
 
-  @media (max-width: 768px) {
-    .logo-container img {
-      max-width: 360px;
-    }
-    .plaque img {
-      height: 240px;
-    }
+  /* horizontal swipe donation grid */
+  .tier-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
   }
 
-  /* ---------- MOBILE IMPROVEMENTS ---------- */
-  @media (max-width: 768px) {
-    /* stop auto scroll on mobile */
-    .plaques-track {
-      animation: none;
-    }
+  .tier-card {
+    min-width: 240px;
+    scroll-snap-align: center;
+  }
 
-    /* subtle tap feedback */
-    .plaque img:active {
-      transform: scale(1.05);
-    }
+  .tier-grid::-webkit-scrollbar {
+    display: none;
+  }
+}
 
+@media (max-width: 768px) {
+
+  .logo-container img {
+    max-width: 360px;
+  }
+
+  .plaque img {
+    height: 240px;
+  }
+
+  /* stop auto-scroll on mobile */
+  .plaques-track {
+    animation: none;
+  }
+
+  /* subtle tap feedback */
+  .plaque img:active {
+    transform: scale(1.05);
+  }
+}
     /* reduce spacing so only 1–2 plaques show */
     .plaques-track {
       gap: 60px;
