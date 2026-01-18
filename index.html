@@ -275,22 +275,23 @@
     transform: scale(1.15);
   }
 
-  /* arrows */
-  .plaques-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(15, 23, 42, 0.9);
-    color: #fff;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 5;
-    transition: transform 0.25s ease, background 0.25s ease, opacity 0.3s ease;
-  }
+.plaques-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(15, 23, 42, 0.9);
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.25s ease, background 0.25s ease;
+  opacity: 1; /* always visible */
+  pointer-events: auto; /* always interactive */
+}
 
   .plaques-arrow:hover {
     background: #020617;
