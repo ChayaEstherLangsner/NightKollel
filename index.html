@@ -77,7 +77,6 @@
     box-shadow: 0 28px 65px rgba(2, 6, 23, 0.75);
   }
 
-  /* First button white border override */
   .header a.btn {
     border: 2px solid white;
   }
@@ -108,32 +107,9 @@
   display: block;
   margin: 14px auto 0;
   border-radius: 2px;
-}}
+}
 
-  /* ---------- ABOUT THE PROGRAM ---------- */
-  .about-section {
-    max-width: 920px;
-    margin: 0 auto 60px;
-    text-align: center;
-  }
-  .about-section p {
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 1.25rem;
-    font-size: 1.1rem;
-    line-height: 1.5;
-  }
-
-  /* Smaller subtitle style for Our Mission */
-  .about-subtitle {
-    font-weight: 400;
-    font-size: 1rem;
-    color: #475569;
-    margin-top: -20px;
-    margin-bottom: 48px;
-  }
-
-  /* ---------- GET A ZECHUT ---------- */
+  /* ---------- ZECHUT 2x2 GRID ---------- */
   .zechut-section {
     background: #fff;
     padding: 70px 20px 50px;
@@ -151,65 +127,48 @@
     color: #1e293b;
   }
 
-  /* Removed subtitle under GET A ZECHUT per your request */
-
-  /* ---------- DONATION TIERS ---------- */
   .tier-grid {
-    margin-top: 10px;
     display: grid;
-    gap: 20px 30px;
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
     justify-items: center;
+  }
+
+  .tier-card-link {
+    text-decoration: none;
+    color: inherit;
   }
 
   .tier-card {
     background: #f9fafb;
-    padding: 40px 30px;
+    padding: 32px 24px;
     border-radius: 18px;
     box-shadow: 0 14px 40px rgba(15, 23, 42, 0.10);
-    width: 280px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .tier-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
   }
- .tier-card-link {
-  text-decoration: none;
-  display: block;
-  color: inherit;
-}
 
-.tier-card-link:hover .tier-card {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-}
-
-.tier-card {
-  cursor: pointer;
-}
-
-  /* Removed top caption, so no h3 */
-
-  .tier-price {
-    font-size: 2.2rem;
+  .tier-amount {
+    font-size: 2rem;
     font-weight: 800;
+    margin-bottom: 8px;
     color: #111827;
-    margin-bottom: 12px;
   }
 
-  .tier-desc {
-    font-size: 1.15rem;
+  .tier-label {
+    font-size: 1.1rem;
     font-weight: 600;
     color: #475569;
   }
 
-  /* ---------- MEDIA ---------- */
+  /* ---------- MEDIA SECTION ---------- */
   .photo-grid,
   .video-grid {
     display: grid;
@@ -231,7 +190,7 @@
     background: #000;
   }
 
-  /* ---------- PLAQUES ---------- */
+  /* ---------- PLAQUES (UNCHANGED) ---------- */
   .plaques-section {
     background: #fff;
     padding: 70px 0;
@@ -248,8 +207,8 @@
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding-left: 80px; /* space for arrows */
-    padding-right: 80px; /* space for arrows */
+    padding-left: 80px;
+    padding-right: 80px;
   }
 
   .plaques-wrapper {
@@ -257,18 +216,7 @@
     scroll-behavior: smooth;
   }
 
-  .plaques-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .plaques-wrapper {
-    scroll-snap-type: x mandatory;
-  }
-
-  .plaque {
-    scroll-snap-align: center;
-    position: relative;
-  }
+  .plaques-wrapper::-webkit-scrollbar { display: none; }
 
   .plaques-track {
     display: flex;
@@ -277,320 +225,168 @@
     animation: scrollPlaques 25s linear infinite;
   }
 
-  .plaques-track:hover {
-    animation-play-state: paused;
-  }
-
   .plaque img {
     height: 480px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(15,23,42,0.18);
     cursor: pointer;
+    transition: transform .3s ease;
   }
 
-  .plaque:hover img {
-    transform: scale(1.15);
-  }
+  .plaque:hover img { transform: scale(1.15); }
 
-.plaques-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(15, 23, 42, 0.9);
-  color: #fff;
-  font-size: 26px;
-  cursor: pointer;
-  z-index: 5;
-  transition: transform 0.25s ease, background 0.25s ease;
-  opacity: 1; /* always visible */
-  pointer-events: auto; /* always interactive */
-}
-
-  .plaques-arrow:hover {
-    background: #020617;
-    transform: translateY(-50%) scale(1.08);
-  }
-
-  .plaques-arrow.left {
-    left: 0;
-  }
-
-  .plaques-arrow.right {
-    right: 0;
-  }
-
-  .plaques-container::before,
-  .plaques-container::after {
-    content: "";
+  .plaques-arrow {
     position: absolute;
-    top: 0;
-    width: 90px;
-    height: 100%;
-    z-index: 4;
-  }
-
-  .plaques-container::before {
-    left: 0;
-  }
-
-  .plaques-container::after {
-    right: 0;
-  }
-
-  /* ---------- PLAQUE MODAL ---------- */
-  .plaque-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(2, 6, 23, 0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 9999;
-  }
-
-  .plaque-modal img {
-    max-width: 90vw;
-    max-height: 90vh;
-    border-radius: 14px;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-    animation: zoomIn 0.3s ease;
-  }
-
-  .plaque-modal.active {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(15,23,42,0.9);
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 5;
     opacity: 1;
-    pointer-events: auto;
   }
 
-  @keyframes zoomIn {
-    from {
-      transform: scale(0.95);
-      opacity: 0;
-    }
-    to {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
+  .plaques-arrow.left { left: 0; }
+  .plaques-arrow.right { right: 0; }
 
   @keyframes scrollPlaques {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   /* ---------- MOBILE ---------- */
-@media (max-width: 900px) {
-  .photo-grid,
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-  .plaques-arrow.left {
-    left: 10px;
-  }
-  .plaques-arrow.right {
-    right: 10px;
-  }
-
-  /* horizontal swipe donation grid */
-  .tier-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 10px;
-  }
-
-  .tier-card {
-    min-width: 240px;
-    scroll-snap-align: center;
-  }
-
-  .tier-grid::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .logo-container img {
-    max-width: 360px;
-  }
-
-  .plaque img {
-    height: 240px;
-  }
-
-  /* stop auto-scroll on mobile */
-  .plaques-track {
-    animation: none;
-  }
-
-  /* subtle tap feedback */
-  .plaque img:active {
-    transform: scale(1.05);
-  }
-}
-    /* reduce spacing so only 1–2 plaques show */
-    .plaques-track {
-      gap: 60px;
+  @media (max-width: 768px) {
+    .tier-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
+
+    .photo-grid,
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .plaque img { height: 240px; }
+    .plaques-track { animation: none; gap: 60px; }
+    .plaques-arrow.left { left: 10px; }
+    .plaques-arrow.right { right: 10px; }
   }
 </style>
 </head>
 
 <body>
-  <!-- HERO -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="logo-container">
-        <img src="night seder logo.png" alt="Night Kollel Logo" />
-      </div>
-      <a
-        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-        class="btn"
-        >Become A Partner</a
-      >
-    </div>
-  </header>
 
-  <!-- ABOUT THE PROGRAM -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-container">
+      <img src="night seder logo.png" alt="Night Kollel Logo" />
+    </div>
+    <a href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh" class="btn">
+      Become A Partner
+    </a>
+  </div>
+</header>
+
 <section id="program" class="section">
-  <div class="container">
-    
+  <div class="inner">
     <h2 class="section-title">About the Program</h2>
-    <p class="section-subtitle">
-      Every night throughout Bein Hazmanim we have over 60 avreichem who come learn.
-    </p>
+    <p class="section-subtitle">Every night throughout Bein Hazmanim we have over 60 avreichem who come learn.</p>
 
     <h2 class="section-title">Our Mission</h2>
     <p class="section-subtitle">
-We keep learning going throughout our off time, and help the kollel avreichem in our community before Pesach by giving them a check.
+      We keep learning going throughout our off time, and help the kollel avreichem in our community before Pesach by giving them a check.
     </p>
-
-    <div class="section-divider"></div>
   </div>
 </section>
 
-  <!-- GET A ZECHUT -->
-  <section class="zechut-section">
-    <h2 class="zechut-title">GET A ZECHUT</h2>
+<section class="zechut-section">
+  <h2 class="zechut-title">GET A ZECHUT</h2>
 
-    <a href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh">
-  <div class="tier-card">
-    <div class="tier-amount">$101</div>
-    <div class="tier-label">One hour of learning</div>
-  </div>
-</a>
-
-<a href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh">
-  <div class="tier-card">
-    <div class="tier-amount">$252</div>
-    <div class="tier-label">Torah Partner</div>
-  </div>
-</a>
-
-<a href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh">
-  <div class="tier-card">
-    <div class="tier-amount">$501</div>
-    <div class="tier-label">One Avreich</div>
-  </div>
-</a>
-
-<a href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh">
-  <div class="tier-card">
-    <div class="tier-amount">$1,000</div>
-    <div class="tier-label">One night of learning</div>
-  </div>
-</a>
-  </section>
-
-  <!-- GLIMPSE INTO NIGHT KOLLEL -->
-  <section class="section" style="padding-top:40px; padding-bottom:40px;">
-    <div class="inner">
-      <h2 class="section-title">A Glimpse into the Night Kollel</h2>
-
-      <div class="photo-grid">
-        <img src="IMG_4798.jpg" alt="Photo 1" />
-        <img src="IMG_4818.jpg" alt="Photo 2" />
+  <div class="tier-grid">
+    <a class="tier-card-link" href="https://secure.cardknox.com/khalbneitorah?Amount=101">
+      <div class="tier-card">
+        <div class="tier-amount">$101</div>
+        <div class="tier-label">One hour of learning</div>
       </div>
+    </a>
 
-      <div class="video-grid">
-        <video controls><source src="video1.mp4" /></video>
-        <video controls><source src="video2.mp4" /></video>
+    <a class="tier-card-link" href="https://secure.cardknox.com/khalbneitorah?Amount=252">
+      <div class="tier-card">
+        <div class="tier-amount">$252</div>
+        <div class="tier-label">Torah Partner</div>
       </div>
+    </a>
 
-      <a
-        href="https://secure.cardknox.com/khalbneitorah?AmountLocked=0&xCommand=cc%3Asale&xCustom03=Safdieh"
-        class="btn"
-        >Support Our Lomdim</a
-      >
+    <a class="tier-card-link" href="https://secure.cardknox.com/khalbneitorah?Amount=501">
+      <div class="tier-card">
+        <div class="tier-amount">$501</div>
+        <div class="tier-label">One Avreich</div>
+      </div>
+    </a>
+
+    <a class="tier-card-link" href="https://secure.cardknox.com/khalbneitorah?Amount=1000">
+      <div class="tier-card">
+        <div class="tier-amount">$1,000</div>
+        <div class="tier-label">One night of learning</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px; padding-bottom:40px;">
+  <div class="inner">
+    <h2 class="section-title">A Glimpse into the Night Kollel</h2>
+
+    <div class="photo-grid">
+      <img src="IMG_4798.jpg" alt="Photo 1" />
+      <img src="IMG_4818.jpg" alt="Photo 2" />
     </div>
-  </section>
 
-  <!-- PLAQUES -->
-  <section class="plaques-section">
-    <h2 class="plaques-title">
-      With Gratitude to the Sponsors Who Made the Program Happen Over the Years
-    </h2>
+    <div class="video-grid">
+      <video controls><source src="video1.mp4" /></video>
+      <video controls><source src="video2.mp4" /></video>
+    </div>
 
-    <div class="plaques-container">
-      <button class="plaques-arrow left" onclick="scrollPlaques(-1)">‹</button>
-      <button class="plaques-arrow right" onclick="scrollPlaques(1)">›</button>
+    <a href="https://secure.cardknox.com/khalbneitorah" class="btn">Support Our Lomdim</a>
+  </div>
+</section>
 
-      <div class="plaques-wrapper" id="plaquesWrapper">
-        <div class="plaques-track" id="plaquesTrack">
-          <a class="plaque" onclick="openPlaque('ns2022.jpg')">
-            <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns2023.jpg')">
-            <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns2024.jpg')">
-            <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
-          </a>
-          <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
-            <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns.jpg')">
-            <img src="ns.jpg" alt="Supporter Plaque" />
-          </a>
+<section class="plaques-section">
+  <h2 class="plaques-title">
+    With Gratitude to the Sponsors Who Made the Program Happen Over the Years
+  </h2>
 
-          <!-- duplicate for seamless loop -->
-          <a class="plaque" onclick="openPlaque('ns2022.jpg')">
-            <img src="ns2022.jpg" alt="Supporter Plaque 2022" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns2023.jpg')">
-            <img src="ns2023.jpg" alt="Supporter Plaque 2023" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns2024.jpg')">
-            <img src="ns2024.jpg" alt="Supporter Plaque 2024" />
-          </a>
-          <a class="plaque" onclick="openPlaque('2ns2024.jpg')">
-            <img src="2ns2024.jpg" alt="Supporter Plaque 2024 (2)" />
-          </a>
-          <a class="plaque" onclick="openPlaque('ns.jpg')">
-            <img src="ns.jpg" alt="Supporter Plaque" />
-          </a>
-        </div>
+  <div class="plaques-container">
+    <button class="plaques-arrow left" onclick="scrollPlaques(-1)">‹</button>
+    <button class="plaques-arrow right" onclick="scrollPlaques(1)">›</button>
+
+    <div class="plaques-wrapper" id="plaquesWrapper">
+      <div class="plaques-track" id="plaquesTrack">
+        <a class="plaque" onclick="openPlaque('ns2022.jpg')"><img src="ns2022.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('ns2023.jpg')"><img src="ns2023.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('ns2024.jpg')"><img src="ns2024.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('2ns2024.jpg')"><img src="2ns2024.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('ns.jpg')"><img src="ns.jpg" /></a>
+
+        <!-- duplicate for seamless loop -->
+        <a class="plaque" onclick="openPlaque('ns2022.jpg')"><img src="ns2022.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('ns2023.jpg')"><img src="ns2023.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('ns2024.jpg')"><img src="ns2024.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('2ns2024.jpg')"><img src="2ns2024.jpg" /></a>
+        <a class="plaque" onclick="openPlaque('ns.jpg')"><img src="ns.jpg" /></a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <script>
 const wrapper = document.getElementById("plaquesWrapper");
 const track = document.getElementById("plaquesTrack");
-
 let scrollTimeout;
 
 function pauseAnimation() {
@@ -603,11 +399,7 @@ function resumeAnimation() {
 
 function scrollPlaques(dir) {
   pauseAnimation();
-  wrapper.scrollBy({
-    left: dir * 420,
-    behavior: "smooth"
-  });
-
+  wrapper.scrollBy({ left: dir * 420, behavior: "smooth" });
   if (scrollTimeout) clearTimeout(scrollTimeout);
   scrollTimeout = setTimeout(resumeAnimation, 2000);
 }
@@ -635,3 +427,6 @@ function closePlaque() {
   document.getElementById("plaqueModal").classList.remove("active");
 }
 </script>
+
+</body>
+</html>
